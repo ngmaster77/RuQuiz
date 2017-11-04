@@ -1,11 +1,7 @@
-require 'sinatra'
-require 'sinatra/activerecord'
-
 class ApplicationController < Sinatra::Base
-  
+  register Sinatra::ActiveRecordExtension
   set :views, Proc.new { File.join(root, "../views/") }
-  set :database, "sqlite3:sytwdb.sqlite3"
-  
+
   configure do
     enable :sessions
     set :session_secret, "secret"
@@ -14,16 +10,37 @@ class ApplicationController < Sinatra::Base
   get '/' do 
     erb :home
   end
-  
-  get '/signup' do
-    erb :signup
+
+  get '/registrations/signup' do
+    erb :'/registrations/signup'
   end
-  
+
   post '/registrations' do
-   redirect '/'
- end
+    @user = User.new(name: params["name"], email: params["email"], password: params["password"])
+    @user.save
+    puts @user.id
+    session[:id] = @user.id
+    redirect '/users/home'
+  end
+
+  get '/sessions/login' do
+    erb :'sessions/login'
+  end
+
+  post '/sessions' do
+    @user = User.find_by(email: params["email"], password: params["password"])
+    session[:id] = @user.id
+    redirect '/users/home'
+  end
+
+  get '/sessions/logout' do 
+    session.clear
+    redirect '/'
+  end
+
+  get '/users/home' do
+    @user = User.find(session[:id])
+    erb :'/users/home'
+  end
 
 end
-
-
-  
