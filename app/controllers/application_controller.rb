@@ -8,39 +8,51 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do 
-    erb :home
+    erb :index
   end
 
-  get '/registrations/signup' do
-    erb :'/registrations/signup'
+  get '/registro' do
+    erb :registro
   end
 
-  post '/registrations' do
+  post '/registro' do
     @user = User.new(name: params["name"], email: params["email"], password: params["password"])
-    @user.save
-    puts @user.id
-    session[:id] = @user.id
-    redirect '/users/home'
+    @user.instructor = params[:instructor] == 'yes' ? true : false 
+    if @user.instructor
+        puts "Hola profesor!"
+    else
+        puts "Hola alumno!"
+    end
+    if @user.save
+        session[:id] = @user.id
+        redirect '/home'
+    else
+        redirect to '/registro'
+    end
   end
 
-  get '/sessions/login' do
-    erb :'sessions/login'
+  get '/login' do
+    erb :login
   end
 
-  post '/sessions' do
-    @user = User.find_by(email: params["email"], password: params["password"])
-    session[:id] = @user.id
-    redirect '/users/home'
+  post '/login' do
+    @user = User.find_by(name: params["name"])
+    if @user && @user.authenticate(params[:password])
+        session[:id] = @user.id
+        redirect '/home'
+    else 
+        redirect '/login'
+    end
   end
 
-  get '/sessions/logout' do 
+  get '/logout' do 
     session.clear
     redirect '/'
   end
 
-  get '/users/home' do
+  get '/home' do
     @user = User.find(session[:id])
-    erb :'/users/home'
+    erb :home
   end
 
 end
