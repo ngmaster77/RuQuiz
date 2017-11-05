@@ -1,6 +1,7 @@
-class Createresultados < ActiveRecord::Migration
+class Createcuestionarios < ActiveRecord::Migration
   def change
-    create_table :resultados do |t|
+    drop_table :cuestionarios
+    create_table :cuestionarios do |t|
       t.integer :idcuestionario
       t.integer :npreguntas
       t.float :notaaprobar
