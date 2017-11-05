@@ -17,6 +17,7 @@ GEM
     bcrypt (3.1.11)
     builder (3.2.3)
     concurrent-ruby (1.0.5)
+    getopt (1.4.3)
     i18n (0.9.1)
       concurrent-ruby (~> 1.0)
     minitest (5.10.3)
@@ -27,6 +28,9 @@ GEM
       rack
     rake (12.2.1)
     require_all (1.4.0)
+    ruql (0.1.5)
+      builder (>= 3.0)
+      getopt (>= 1.0)
     sinatra (1.4.8)
       rack (~> 1.5)
       rack-protection (~> 1.4)
@@ -49,6 +53,7 @@ DEPENDENCIES
   rack-flash3
   rake
   require_all
+  ruql
   sinatra
   sinatra-activerecord
   sqlite3

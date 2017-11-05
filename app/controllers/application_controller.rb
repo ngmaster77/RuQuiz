@@ -1,7 +1,10 @@
+
 class ApplicationController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
   set :views, Proc.new { File.join(root, "../views/") }
   use Rack::Flash
+  
+  
   configure do
     enable :sessions
     set :session_secret, "secret"
@@ -69,6 +72,16 @@ class ApplicationController < Sinatra::Base
   get '/home_profesor' do
     @user = User.find(session[:id])
     erb :home_profesor
+  end
+  
+  get '/newcuestionario' do
+    @user = User.find(session[:id])
+    erb :newcuestionario
+  end
+  
+  post '/newcuestionario' do
+    prueba = params["tittle"]
+    @cuest = Prueba.new(prueba)
   end
 
 end
