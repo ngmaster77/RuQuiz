@@ -1,7 +1,7 @@
 class ApplicationController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
   set :views, Proc.new { File.join(root, "../views/") }
-
+  use Rack::Flash
   configure do
     enable :sessions
     set :session_secret, "secret"
@@ -16,17 +16,23 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/registro' do
-    @user = User.new(name: params["name"], email: params["email"], password: params["password"])
-    @user.instructor = params[:instructor] == 'yes' ? true : false 
-    if @user.instructor
-        puts "Hola profesor!"
+    @user = User.find_by(name: params["name"])
+    if @user
+      flash[:error] = "Usuario ya existe"
+      redirect to '/registro'
     else
-        puts "Hola alumno!"
+      @user = User.new(name: params["name"], email: params["email"], password: params["password"])
+      @user.instructor = params[:instructor] == 'yes' ? true : false 
     end
     if @user.save
         session[:id] = @user.id
-        redirect '/home'
+        if @user.instructor
+          redirect '/home_profesor'
+        else
+          redirect '/home_alumno'
+        end
     else
+        flash[:error] = "No se ha creado el usuario correctamente"
         redirect to '/registro'
     end
   end
@@ -39,8 +45,13 @@ class ApplicationController < Sinatra::Base
     @user = User.find_by(name: params["name"])
     if @user && @user.authenticate(params[:password])
         session[:id] = @user.id
-        redirect '/home'
+        if @user.instructor
+          redirect '/home_profesor'
+        else
+          redirect '/home_alumno'
+        end
     else 
+        flash[:error] = "No se ha encontrado el usuario"
         redirect '/login'
     end
   end
@@ -50,9 +61,14 @@ class ApplicationController < Sinatra::Base
     redirect '/'
   end
 
-  get '/home' do
+  get '/home_alumno' do
     @user = User.find(session[:id])
-    erb :home
+    erb :home_alumno
+  end
+  
+  get '/home_profesor' do
+    @user = User.find(session[:id])
+    erb :home_profesor
   end
 
 end

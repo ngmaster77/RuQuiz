@@ -9,3 +9,7 @@
   <br><br>
   <input type="submit" value="Log in">
 </form>
+
+<% if flash.has?(:error) %>
+  <h3><%= flash[:error] %></h3>
+<% end %>
