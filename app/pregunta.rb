@@ -1,5 +1,5 @@
 class Pregunta 
   
-   def RUQL; raise MESS; end
+   def toRUQL; raise MESS; end
 
 end
