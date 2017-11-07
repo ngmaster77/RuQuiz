@@ -1,3 +1,17 @@
-h1 {
-  color: red;
+#box {
+  padding: 30px;
+  border-radius: 1%;
+  margin-top: 20px;
+  background-color:#EDEDEB;
+  width:100%;
+}
+
+#contenido {
+  width:100%;
+}
+
+h2 {
+  text-align: center;
+  color:red;
+
 }

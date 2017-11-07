@@ -1,26 +1,22 @@
 <html>
 
-<head>
-  <link rel="stylesheet" href="css/personal.css">
-</head>
-
-
 <body>
-  <h1>Log In Below:</h1>
 
-  <form action="/login" method="post">
-    Name:<br>
-    <input type="text" name="name" value="nombre">
-    <br>
-    Password:<br>
-    <input type="text" name="password" value="contrasena">
-    <br><br>
-    <input type="submit" value="Log in">
-  </form>
+    <h1>Log In Below:</h1>
 
-  <% if flash.has?(:error) %>
-    <h3><%= flash[:error] %></h3>
-  <% end %>
+    <form action="/login" method="post">
+      Name:<br>
+      <input type="text" name="name" value="nombre">
+      <br>
+      Password:<br>
+      <input type="text" name="password" value="contrasena">
+      <br><br>
+      <input type="submit" value="Log in">
+    </form>
 
-</body>
+    <% if flash.has?(:error) %>
+      <h3><%= flash[:error] %></h3>
+    <% end %>
+
+  </body>
 </html>
