@@ -25,6 +25,7 @@ $(document).ready(function() {
         console.log("añadiendo completar");
         var questionNumber = $("<hr><h3>Pregunta " + pregunta + "</h3>");
         pregunta++;
+        
         $(".questions").append(questionNumber);
     });
     $("#add3").click(function() {
