@@ -1,5 +1,6 @@
 $(document).ready(function() {
     console.log("jquery ok")
+    var pregunta = 1;
     $("#add").click(function() {
         var intId = $("#buildyourform div").length + 1;
         var fieldWrapper = $("<div class=\"fieldwrapper\" id=\"field" + intId + "\"/>");
@@ -16,12 +17,21 @@ $(document).ready(function() {
     });
     $("#add1").click(function() {
         console.log("añadiendo verdadero o falso");
+        var questionNumber = $("<hr><h3>Pregunta " + pregunta + "</h3>");
+        pregunta++;
+        $(".questions").append(questionNumber);
     });
     $("#add2").click(function() {
-        console.log("añadiendo verdadero o falso");
+        console.log("añadiendo completar");
+        var questionNumber = $("<hr><h3>Pregunta " + pregunta + "</h3>");
+        pregunta++;
+        $(".questions").append(questionNumber);
     });
     $("#add3").click(function() {
         console.log("añadiendo verdadero o falso");
+        var questionNumber = $("<hr><h3>Pregunta " + pregunta + "</h3>");
+        pregunta++;
+        $(".questions").append(questionNumber);
     });
 });
 /*
