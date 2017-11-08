@@ -11,9 +11,9 @@ class PreguntaRelleno < Pregunta
    
    def toRUQL
      r = "fill_in :points => " + @puntuation.to_s + " do "
-     r += "text " + @text.to_s + " "
-     r += "answer " + @answer.to_s + " "
-     r += "end"
+     r << "text " + "'#{@text}'" + "\n"
+     r << "answer " + "'#{@answer}'" + " "
+     r << "end"
      puts r 
    end
    
