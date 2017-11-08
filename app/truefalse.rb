@@ -1,4 +1,7 @@
-class TrueFalse 
+class PreguntaVerdadero  < Pregunta
+  
+  attr_accessor :text, :answer, :puntuation
+  
   def initialize(enunciado, respuesta, puntuacion)
     @text = enunciado
     @answer = respuesta
@@ -6,9 +9,9 @@ class TrueFalse
   end
   
   def toRUQL
-    str = "truefalse "
-    str << "'#{@text}', #{@answer}"
-    str
+    r = "truefalse "
+    r << "'#{@text}', #{@answer}"
+    r
   end
 end
 
