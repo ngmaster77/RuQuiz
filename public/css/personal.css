@@ -17,3 +17,9 @@ body {
 #bienvenido {
   padding-right: 10px;
 }
+
+h3.error {
+  color:red; 
+  text-align: center;
+  font-size: 20px; 
+}
