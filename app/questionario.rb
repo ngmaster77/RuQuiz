@@ -1,6 +1,7 @@
 require './app/pregunta'
 require './app/preguntarelleno'
 require './app/truefalse'
+require './app/seleccion'
 
 class Questionario
   
@@ -28,8 +29,10 @@ class Questionario
 end
 
 
+
 A = PreguntaRelleno.new("capital de california", "sacramento", "2")
 B = TrueFalse.new('la tierra es plana', 'false', '1')
+D = PreguntaSeleccion.new("texto","pregunta",["res1","res2","res3"])
 
-C = Questionario.new("Prueba", [A,B])
+C = Questionario.new("Prueba", [A,B,D])
 C.write()
