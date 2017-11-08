@@ -1,44 +1,103 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/personal.css">
-  </head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="css/personal.css">
+  <title>Creando cuestionario</title>
+</head>
 
-  <body>
-    <form action="/newcuestionario" method="post">
-      Nombre del cuestionario:<br>
-      <input type="text" name="tittle" value="titulo">
-      <br>
-      Selecciona el tipo de pregunta:
-      <br>
-      <div class="form-check">
-        <label class="form-check-label">
-          <input class="form-check-input" type="radio" name="fill_in" id="exampleRadios">
-          Pregunta corta de relleno
-        </label>
-      </div>
-      <div class="form-check">
-        <label class="form-check-label">
-          <input class="form-check-input" type="radio" name="multiple_choice" id="exampleRadios1">
-          Pregunta de elección múltiple
-        </label>
-      </div>
-      <div class="form-check">
-        <label class="form-check-label">
-          <input class="form-check-input" type="radio" name="true_false" id="exampleRadios2">
-          Pregunta Verdadero/Falso
-        </label>
-      </div>
-      <br>
-      Enunciado de la pregunta:<br>
-      <input type="text" name="question" value="pregunta">
-      <br>
-      <input type="submit" value="Crear Cuestionario">
-    </form>
-  </body>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">
+      <img src="images/ruby.jpg" width="30" height="30" class="d-inline-block align-top" alt=""> RuQuiz
+    </a>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto"></ul>
+      <span class="navbar-text" id="bienvenido">
+        ¡Profesor
+        <%=@user.name%>!
+      </span>
+      <a href="/logout" class="btn btn-danger my-2 my-sm-0" role="button">Salir</a>
+    </div>
+  </nav>
+
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <h1>Creando nuevo cuestionario</h1>
+      <form>
+        <div class="card">
+          <div class="card-body">
+            <h2>Información básica</h2>
+            <div class="form-group">
+              <label for="inputTitle">Título</label>
+              <input type="text" class="form-control" id="inputTitle">
+            </div>
+            <div class="form-group">
+              <label for="inputDesc">Descripción</label>
+              <textarea class="form-control" id="inputDesc" rows="2"></textarea>
+            </div>
+            <div class="questions">
+              <hr>
+              <h3>Pregunta 1</h3>
+              <p>(Verdadero o Falso)</p>
+              <div class="form-group">
+                <label for="inputTitle">Enunciado de la pregunta</label>
+                <input type="text" class="form-control" id="inputTitle">
+              </div>
+              <div class="form-group">
+                <label for="inputTitle">Respuesta
+                  <strong>Verdadera</strong>
+                </label>
+                <input type="text" class="form-control" id="inputTitle">
+              </div>
+              <div class="form-group">
+                <label for="inputTitle">Respuesta
+                  <strong>Falsa</strong>
+                </label>
+                <input type="text" class="form-control" id="inputTitle">
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-12">
+                <div class="text-center">
+                  <button type="button" class="btn btn-primary btn-sm" id="add1">
+                    <i class="fa fa-plus" aria-hidden="true"></i> Verdadero o falso</button>
+                  <button type="button" class="btn btn-primary btn-sm" id="add2">
+                    <i class="fa fa-plus" aria-hidden="true"></i> Completar</button>
+                  <button type="button" class="btn btn-primary btn-sm" id="add3">
+                    <i class="fa fa-plus" aria-hidden="true"></i> Multirespuesta</button>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="text-center">
+                  <button type="submit" class="btn btn-success btn-sm">
+                    <i class="fa fa-paper-plane" aria-hidden="true"></i> Enviar cuestionario
+                  </button>
+                  <button type="button" class="btn btn-danger btn-sm">
+                    <i class="fa fa-trash" aria-hidden="true"></i> Borrar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://use.fontawesome.com/84656ba81e.js"></script>
+  <script src="js/addQuestion.js"></script>
+
+</body>
 
 </html>
