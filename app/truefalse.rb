@@ -7,11 +7,10 @@ class PreguntaVerdadero  < Pregunta
     @answer = respuesta
     @puntuation = puntuacion
   end
-  
+
   def toRUQL
     r = "truefalse "
     r << "'#{@text}', #{@answer}"
     r
   end
 end
-
