@@ -14,12 +14,10 @@ class PreguntaRelleno < Pregunta
      r << "text " + "'#{@text}'" + "\n"
      r << "answer " + "'#{@answer}'" + " "
      r << "end"
-     puts r 
+     r 
    end
    
    
 end
 
-A = PreguntaRelleno.new("capital de california", "sacramento", "2")
-A.toRUQL()
 

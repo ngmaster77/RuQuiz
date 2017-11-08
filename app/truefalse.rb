@@ -6,11 +6,9 @@ class TrueFalse
   end
   
   def toRUQL
-    str = "truefalse :points => "
+    str = "truefalse "
     str << "'#{@text}', #{@answer}"
-    puts str
+    str
   end
 end
 
-A = TrueFalse.new('la tierra es plana', 'false', '1')
-A.toRUQL
