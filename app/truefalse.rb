@@ -1,4 +1,4 @@
-class TrueFalse 
+class TrueFalse < Pregunta
   def initialize(enunciado, respuesta, puntuacion)
     @text = enunciado
     @answer = respuesta
