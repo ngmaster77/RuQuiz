@@ -6,7 +6,7 @@ class TrueFalse
   end
   
   def toRUQL
-    str = "truefalse "
+    str = "truefalse :points => "
     str << "'#{@text}', #{@answer}"
     puts str
   end
