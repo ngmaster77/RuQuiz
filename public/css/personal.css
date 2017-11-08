@@ -17,3 +17,8 @@ body {
 #bienvenido {
   padding-right: 10px;
 }
+
+.btn
+{
+    margin: 2px 0;
+}
