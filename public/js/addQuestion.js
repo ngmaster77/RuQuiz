@@ -36,4 +36,8 @@ $(document).ready(function() {
         
         $(".questions").append(questionNumber);
     });
+    $("#deleteAll").click(function() {
+        pregunta = 1;
+        $(".questions").empty();
+    });
 });
