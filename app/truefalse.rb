@@ -1,4 +1,4 @@
-class TrueFalse < Pregunta
+class VerdaderoFalso < Pregunta
   attr_accessor :text, :answer, :puntuation
   def initialize(enunciado, respuesta, puntuacion)
     @text = enunciado
