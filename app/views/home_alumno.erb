@@ -1,3 +1,29 @@
-"Alumno, <%=@user.name%>!
-<a href="/logout">Log Out</a>
+<!DOCTYPE html>
+<html>
 
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/personal.css">
+    <title>Mi página</title>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">
+        <img src="images/ruby.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+        RuQuiz
+      </a>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto"></ul>
+        <span class="navbar-text" id="bienvenido">
+          ¡Alumno <%=@user.name%>!
+        </span>
+        <a href="/logout" class="btn btn-danger my-2 my-sm-0" role="button">Salir</a>
+      </div>
+    </nav>
+
+  </body>
+</html>
