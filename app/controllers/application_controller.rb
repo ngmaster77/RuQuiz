@@ -80,8 +80,9 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/newcuestionario' do
-    prueba = params["tittle"]
-    @cuest = Prueba.new(prueba)
+    puts "HOLA"
+    puts params
+    
   end
 
 end

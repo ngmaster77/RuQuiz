@@ -6,11 +6,15 @@ require './app/seleccion'
 class Questionario
   
   @preguntas = []
-  attr_accessor :titulo
+  attr_accessor :titulo, :identificador
   
   def initialize (titulo, array)
     @titulo = titulo
     @preguntas = array
+    @identificador = Time.new.strftime("%Y-%m-%d %H:%M:%S")
+    parse()
+    puts @identificador
+    
   end
   
   def write 
@@ -26,6 +30,18 @@ class Questionario
       
   end
   
+  def parse 
+
+    @identificador = @identificador.to_s
+    @identificador = @identificador.split('-')
+    @identificador = @identificador.join()
+    @identificador = @identificador.split(' ')
+    @identificador = @identificador.join()
+    @identificador = @identificador.split(':')
+    @identificador = @identificador.join()
+    
+  end
+  
 end
 
 
@@ -35,4 +51,3 @@ B = PreguntaVerdadero.new('la tierra es plana', 'false', '1')
 D = PreguntaSeleccion.new("texto","pregunta",["res1","res2","res3"])
 
 C = Questionario.new("Prueba", [A,B,D])
-C.write()
