@@ -46,8 +46,9 @@ end
 
 
 
-A = PreguntaRelleno.new("capital de california", "sacramento", "2")
-B = PreguntaVerdadero.new('la tierra es plana', 'false', '1')
+A = PreguntaRelleno.new("capital de california -  hola - ", "sacramento")
+B = PreguntaVerdadero.new('la tierra es plana', 'false')
 D = PreguntaSeleccion.new("texto","pregunta",["res1","res2","res3"])
 
 C = Questionario.new("Prueba", [A,B,D])
+C.write()

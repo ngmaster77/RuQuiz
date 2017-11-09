@@ -1,11 +1,10 @@
 class PreguntaVerdadero  < Pregunta
   
-  attr_accessor :text, :answer, :puntuation
+  attr_accessor :text, :answer
   
-  def initialize(enunciado, respuesta, puntuacion)
+  def initialize(enunciado, respuesta)
     @text = enunciado
     @answer = respuesta
-    @puntuation = puntuacion
   end
 
   def toRUQL
