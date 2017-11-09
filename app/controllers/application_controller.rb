@@ -80,9 +80,8 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/newcuestionario' do
-    puts "HOLA"
-    puts params
-    
+    @data = params
+    erb :buildnewcuestionario
   end
 
 end
