@@ -42,27 +42,7 @@
               <label for="inputDesc">Descripción</label>
               <textarea class="form-control" id="inputDesc" rows="2"></textarea>
             </div>
-            <div class="questions">
-              <hr>
-              <h3>Pregunta 1</h3>
-              <p>(Verdadero o Falso)</p>
-              <div class="form-group">
-                <label for="inputTitle">Enunciado de la pregunta</label>
-                <input type="text" class="form-control" id="inputTitle">
-              </div>
-              <div class="form-group">
-                <label for="inputTitle">Respuesta
-                  <strong>Verdadera</strong>
-                </label>
-                <input type="text" class="form-control" id="inputTitle">
-              </div>
-              <div class="form-group">
-                <label for="inputTitle">Respuesta
-                  <strong>Falsa</strong>
-                </label>
-                <input type="text" class="form-control" id="inputTitle">
-              </div>
-            </div>
+            <div class="questions"></div>
             <hr>
             <div class="row">
               <div class="col-12">
@@ -82,7 +62,7 @@
                   <button type="submit" class="btn btn-success btn-sm">
                     <i class="fa fa-paper-plane" aria-hidden="true"></i> Enviar cuestionario
                   </button>
-                  <button type="button" class="btn btn-danger btn-sm">
+                  <button type="button" class="btn btn-danger btn-sm" id="deleteAll">
                     <i class="fa fa-trash" aria-hidden="true"></i> Borrar
                   </button>
                 </div>
