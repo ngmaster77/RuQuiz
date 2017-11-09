@@ -23,10 +23,16 @@ $(document).ready(function() {
         $(".questions").append(fieldWrapper);
     });
     $("#add3").click(function() {
-        var questionNumber = "<hr><h3>Pregunta " + pregunta + " <small>(Multirespuesta)</small></h3>";
+        var questionTitle = "<hr><h3>Pregunta " + pregunta + " <small>(Multirespuesta)</small></h3>";
+        var questionType = "<div class=\"form-group\"><input type=\"text\" class=\"form-control\" name=\"inputQuestionType" + pregunta + "\" value=\"3\" hidden></div>";
+        var inputQuestion = "<div class=\"form-group\"><label for=\"inputQuestionChoice" + pregunta + "\">Enunciado</label><input type=\"text\" class=\"form-control\" id=\"inputQuestionChoice" + pregunta + "\" name=\"inputQuestionChoice" + pregunta + "\"></div>";
+        var inputTrueAnswer = "<div class=\"form-group\"><label for=\"inputTrueAnswerChoice" + pregunta + "\">Respuesta Correcta</label><input type=\"text\" class=\"form-control\" id=\"inputTrueAnswerChoice" + pregunta + "\" name=\"inputTrueAnswerChoice" + pregunta + "\"></div>";
+        var inputFalseAnswer = "<div class=\"form-group\"><label for=\"inputFalseAnswerChoice" + pregunta + "\">Respuestas Incorrectas</label><input type=\"text\" class=\"form-control\" id=\"inputFalseAnswerChoice" + pregunta + "\" name=\"inputFalseAnswerChoice" + pregunta + "\"></div>";
+        var question = questionTitle + questionType + inputQuestion + inputTrueAnswer + inputFalseAnswer;
+        var fieldWrapper = $("<div id=\"question" + pregunta + "\"</div>");
         pregunta++;
-        
-        $(".questions").append(questionNumber);
+        fieldWrapper.append(question);
+        $(".questions").append(fieldWrapper);
     });
     $("#deleteAll").click(function() {
         pregunta = 1;
