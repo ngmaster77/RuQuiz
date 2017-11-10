@@ -26,7 +26,7 @@ class Questionario
       }
       r << "end"
       puts r
-      File.open("./app/#{@titulo}.rb","w+"){|f| f.write(r) }
+      File.open("./app/#{@identificador}.rb","w+"){|f| f.write(r) }
       
   end
   
@@ -45,10 +45,3 @@ class Questionario
 end
 
 
-
-A = PreguntaRelleno.new("capital de california -  hola - ", "sacramento")
-B = PreguntaVerdadero.new('la tierra es plana', 'false')
-D = PreguntaSeleccion.new("texto","pregunta",["res1","res2","res3"])
-
-C = Questionario.new("Prueba", [A,B,D])
-#C.write()
