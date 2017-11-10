@@ -51,4 +51,4 @@ B = PreguntaVerdadero.new('la tierra es plana', 'false')
 D = PreguntaSeleccion.new("texto","pregunta",["res1","res2","res3"])
 
 C = Questionario.new("Prueba", [A,B,D])
-C.write()
+#C.write()
