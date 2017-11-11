@@ -1,6 +1,7 @@
 class ApplicationController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
   set :views, Proc.new { File.join(root, "../views") }
+  set :haml, :format => :html5
   set :public_folder, 'public'
   use Rack::Flash
 

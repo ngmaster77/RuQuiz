@@ -44,8 +44,8 @@ class CuestionarioController < ApplicationController
   get '/cuestionario/:id' do
     var = params['id']
     @cuestionario = Cuestionario.find_by(idcuestionario: params['id'])
-    exec "ruql ./var/#{var}.rb HtmlForm -t ./public/templates/htmlform.html.erb > ./app/views/cuestionarios/#{var}.html.erb"
-    erb :"#{var}.html"
+    system "ruql ./var/#{var}.rb HtmlForm -t ./public/templates/htmlform.html.erb > ./app/views/cuestionarios/#{var}.html"
+    send_file "./app/views/cuestionarios/#{var}.html"
   end
   
 end
