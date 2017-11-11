@@ -26,7 +26,7 @@ class Questionario
       }
       r << "end"
       puts r
-      File.open("./app/#{@identificador}.rb","w+"){|f| f.write(r) }
+      File.open("./var/#{@identificador}.rb","w+"){|f| f.write(r) }
       
   end
   

@@ -23,6 +23,7 @@ class CuestionarioController < ApplicationController
          iterator += 1 
     end
     @questionario = Questionario.new(@data[0], array)
+    @questionario.write
     @cuestionario = Cuestionario.new(titulo:@data[0],idcuestionario: @questionario.identificador,npreguntas: array.length, notaaprobar: ((array.length)/2), notamaxima: array.length)
     if @cuestionario.save 
           flash[:error] = "Creado con éxito!"
@@ -38,6 +39,13 @@ class CuestionarioController < ApplicationController
     @cuestionarios = Cuestionario.all
     erb :showcuestionarios
     
+  end
+  
+  get '/cuestionario/:id' do
+    var = params['id']
+    @cuestionario = Cuestionario.find_by(idcuestionario: params['id'])
+    exec "ruql ./var/#{var}.rb HtmlForm -t ./public/templates/htmlform.html.erb > ./app/views/cuestionarios/#{var}.html.erb"
+    erb :"#{var}.html"
   end
   
 end
