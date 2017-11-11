@@ -1577,8 +1577,6 @@ CodeMirror.defineMIME("application/typescript", { name: "javascript", typescript
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-              <li>SYTW</li><br/>
-              <li>RuQUIZ</li><br/>
               <li>
                 <a href="/home_alumno" class="links">
                   Salir </a>
@@ -1587,7 +1585,7 @@ CodeMirror.defineMIME("application/typescript", { name: "javascript", typescript
           </div>
         </div>
       
-      <!-- Seed: 226422266778335211658548001465413927537 -->
+      <!-- Seed: 315486224347232742773620279946191300707 -->
 <form id="form">
   <ol class="questions">
     <li id="question-0" class="question truefalse ">
@@ -1601,23 +1599,6 @@ True<br class="qmc1-1br">        </input>
         <input type="radio" id="qmc1-2" name="qmc1" class="select">
 False<br class="qmc1-2br">        </input>
         <div id="qmc1-2r" class="quiz">
-        </div>
-        <br/>
-      </ol>
-    </li>
-    <br>
-    </br>
-    <li id="question-1" class="question truefalse ">
-      <div class="quiz text">
-[1 point] True or False: EnunciadoVerdadero2<br></br>      </div>
-      <ol class="answers">
-        <input type="radio" id="qmc2-1" name="qmc2" class="select">
-True<br class="qmc2-1br">        </input>
-        <div id="qmc2-1r" class="quiz">
-        </div>
-        <input type="radio" id="qmc2-2" name="qmc2" class="select">
-False<br class="qmc2-2br">        </input>
-        <div id="qmc2-2r" class="quiz">
         </div>
         <br/>
       </ol>
@@ -1722,11 +1703,11 @@ var XRegExp;XRegExp=XRegExp||function(n){"use strict";function v(n,i,r){var u;fo
     
       <script type="text/javascript">
         
-      data = {"question-0":{"question_text":"True or False: EnunciadoVerdadero1","answers":{"qmc1-1":{"answer_text":"True","correct":false,"explanation":""},"qmc1-2":{"answer_text":"False","correct":true,"explanation":null}},"points":1,"question_comment":""},"question-1":{"question_text":"True or False: EnunciadoVerdadero2","answers":{"qmc2-1":{"answer_text":"True","correct":true,"explanation":null},"qmc2-2":{"answer_text":"False","correct":false,"explanation":""}},"points":1,"question_comment":""}};
-      timestamp = 1510420539
+      data = {"question-0":{"question_text":"True or False: EnunciadoVerdadero1","answers":{"qmc1-1":{"answer_text":"True","correct":false,"explanation":""},"qmc1-2":{"answer_text":"False","correct":true,"explanation":null}},"points":1,"question_comment":""}};
+      timestamp = 1510428521
       timestamp = timestamp.toString();
       language = 'es';
-      totalPoints = 2;
+      totalPoints = 1;
       userPoints = 0;
       
       function findCorrectAnswer(idQuestion, questionType) {
@@ -2315,6 +2296,18 @@ $("#submit").click(function() {
   
   storeAnswers();
   showTotalScore();
+  data =   $("#score").html(i18n[language]['questions']['score'] + ": " + userPoints.toFixed(2) + "/" + totalPoints.toFixed(2) + " " + i18n[language]['questions']['points'])
+  post = data["0"].textContent
+  
+  $.ajax({
+						type: 'POST',
+						data: post,
+                        url: 'http://localhost:9292/resultado',						
+                        success: function(post) {
+
+                        }
+                    });
+});
 });
 
 $("#reset").click(function() {

@@ -1,10 +1,9 @@
 class ApplicationController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
   set :views, Proc.new { File.join(root, "../views") }
-  set :haml, :format => :html5
   set :public_folder, 'public'
   use Rack::Flash
-
+  $identificador
 
   configure do
     enable :sessions
@@ -62,11 +61,12 @@ class ApplicationController < Sinatra::Base
 
   get '/logout' do
     session.clear
-    redirect '/'
+    redirect '/login'
   end
 
   get '/home_alumno' do
     @user = User.find(session[:id])
+    @resultados = Resultado.all 
     erb :home_alumno
   end
 
@@ -74,7 +74,4 @@ class ApplicationController < Sinatra::Base
     @user = User.find(session[:id])
     erb :home_profesor
   end
-
-  
-
 end
