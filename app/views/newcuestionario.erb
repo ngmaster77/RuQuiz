@@ -79,6 +79,10 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
   <script src="https://use.fontawesome.com/84656ba81e.js"></script>
   <script src="js/addQuestion.js"></script>
+  
+  <% if flash.has?(:error) %>
+    <h3 class="error"><%= flash[:error] %></h3>
+  <% end %>
 
 </body>
 

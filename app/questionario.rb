@@ -13,7 +13,7 @@ class Questionario
     @preguntas = array
     @identificador = Time.new.strftime("%Y-%m-%d %H:%M:%S")
     parse()
-    puts @identificador
+    
     
   end
   
