@@ -9,7 +9,7 @@
     <title>Mi página</title>
   </head>
 
-  <body>
+  <body id="body_home">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="/">
@@ -19,22 +19,41 @@
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto"></ul>
         <span class="navbar-text" id="bienvenido">
-          ¡Alumno <%=@user.name%>!
+          ¡Alumno
+          <%=@user.name%>!
         </span>
         <a href="/logout" class="btn btn-danger my-2 my-sm-0" role="button">Salir</a>
       </div>
     </nav>
 
+    <div class="jumbotron">
+      <h1 class="display-3">Campus virtual</h1>
+      <p class="lead">Aquí se mostrará la información sobre los cuestionarios disponibles y las calificaciones de cada uno.</p>
+      <hr class="my-4">
+      <p class="lead">
+        <a href="/showcuestionarios" class="btn btn-info">Mostrar cuestionarios</a>
+      </p>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12" id="box_home">
+          <h4 id="titulo_home">Usuario</h4>
+          <h4>
+            Resultados
+          </h4>
+
+          <ul>
+            <%@pruebas.each do |prueba|%>
+              <li>
+                <h3>
+                  <%=prueba.nota%></h3>
+              </li>
+            <%end%>
+            <ul>
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>
-<a href="/showcuestionarios">Ver cuestionarios</a>
-
-
-<h4> Resultados </h4>
-
-<ul> <%@pruebas.each do |prueba|%>
-  <li>
-      <h3>  <%=prueba.nota%></h3>
-  </li>
-<%end%><ul>
-
