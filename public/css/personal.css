@@ -7,7 +7,6 @@ body {
   border-radius: 1%;
   margin-top: 20px;
   background-color: white;
-  width: 100%;
 }
 
 #contenido {
@@ -19,11 +18,42 @@ body {
 }
 
 h3.error {
-  color:red; 
+  color:red;
   text-align: center;
-  font-size: 20px; 
+  font-size: 20px;
 }
+
 .btn
 {
     margin: 2px 0;
+}
+
+nav {
+  border-bottom: 2px solid #dc3545;
+}
+
+hr {
+  border-color: #DCDCDC;
+  width: 95%;
+}
+
+#registro_github {
+  margin:auto;
+  width: 100%;
+}
+
+#titulo {
+  text-align: center;
+}
+
+#box_home {
+  width:100%;
+}
+
+#titulo_home {
+  text-align: center;
+}
+
+#body_home {
+  background-color: #e9ecef;
 }
