@@ -34,8 +34,8 @@ $(document).ready(function() {
         fieldWrapper.append(question);
         $(".questions").append(fieldWrapper);
     });
-    /*$("#deleteAll").click(function() {
+    $("#deleteAll").click(function() {
         pregunta = 1;
         $(".questions").empty();
-    });*/
+    });
 });
