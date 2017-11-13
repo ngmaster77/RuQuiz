@@ -30,15 +30,38 @@ GEM
     bcrypt (3.1.11)
     builder (3.2.3)
     concurrent-ruby (1.0.5)
+    dotenv (2.2.1)
+    faraday (0.12.2)
+      multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
     getopt (1.4.3)
+    hashie (3.5.6)
     htmlentities (4.3.4)
     i18n (0.9.1)
       concurrent-ruby (~> 1.0)
     json (1.8.6)
+    jwt (1.5.6)
     locale (2.1.2)
     minitest (5.10.3)
+    multi_json (1.12.2)
+    multi_xml (0.6.0)
+    multipart-post (2.0.0)
     mustermann (1.0.1)
+    oauth2 (1.4.0)
+      faraday (>= 0.8, < 0.13)
+      jwt (~> 1.0)
+      multi_json (~> 1.3)
+      multi_xml (~> 0.5)
+      rack (>= 1.2, < 3)
+    omniauth (1.7.1)
+      hashie (>= 3.4.6, < 3.6.0)
+      rack (>= 1.6.2, < 3)
+    omniauth-github (1.3.0)
+      omniauth (~> 1.5)
+      omniauth-oauth2 (>= 1.4.0, < 2.0)
+    omniauth-oauth2 (1.4.0)
+      oauth2 (~> 1.0)
+      omniauth (~> 1.2)
     rack (2.0.3)
     rack-flash3 (1.0.5)
       rack
@@ -74,6 +97,9 @@ PLATFORMS
 DEPENDENCIES
   activerecord
   bcrypt
+  dotenv
+  omniauth
+  omniauth-github
   rack-flash3
   rake
   require_all
@@ -83,4 +109,4 @@ DEPENDENCIES
   sqlite3
 
 BUNDLED WITH
-   1.15.4
+   1.16.0
