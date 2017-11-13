@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
     crossorigin="anonymous">
   <link rel="stylesheet" href="css/personal.css">
-  <title>Creando cuestionario</title>
+  <title>RuQuiz - Creando cuestionario</title>
 </head>
 
 <body>
@@ -30,17 +30,23 @@
     <div class="col-2"></div>
     <div class="col-8">
       <h1>Creando nuevo cuestionario</h1>
-      <form action="/newcuestionario" method="post">
+      <form action="/newcuestionario" method="post" id="needs-validation" novalidate>
         <div class="card">
           <div class="card-body">
             <h2>Información básica</h2>
             <div class="form-group">
               <label for="inputTitle">Título</label>
-              <input type="text" class="form-control" id="inputTitle" name="inputTitle">
+              <input type="text" class="form-control" id="inputTitle" name="inputTitle" required>
+              <div class="invalid-feedback">
+                Para añadir un cuestionario debe indicar un título.
+              </div>
             </div>
             <div class="form-group">
               <label for="inputDesc">Descripción</label>
-              <textarea class="form-control" id="inputDesc" rows="2" name="inputDesc"></textarea>
+              <textarea class="form-control" id="inputDesc" rows="2" name="inputDesc" required></textarea>
+              <div class="invalid-feedback">
+                Para añadir un cuestionario debe indicar una descripción.
+              </div>
             </div>
             <div class="questions"></div>
             <hr>
@@ -62,7 +68,7 @@
                   <button type="submit" class="btn btn-success btn-sm">
                     <i class="fa fa-paper-plane" aria-hidden="true"></i> Enviar cuestionario
                   </button>
-                  <button type="button" class="btn btn-danger btn-sm" id="deleteAll">
+                  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">
                     <i class="fa fa-trash" aria-hidden="true"></i> Borrar
                   </button>
                 </div>
@@ -74,15 +80,43 @@
     </div>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Borrar preguntas</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ¿Estás seguro que deseas borrar todas las preguntas? No se podrá deshacer este cambio.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-danger btn-sm" id="deleteAll" data-dismiss="modal">
+            <i class="fa fa-trash" aria-hidden="true"></i> Borrar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+    crossorigin="anonymous"></script>
   <script src="https://use.fontawesome.com/84656ba81e.js"></script>
   <script src="js/addQuestion.js"></script>
-  
+
   <% if flash.has?(:error) %>
-    <h3 class="error"><%= flash[:error] %></h3>
-  <% end %>
+    <h3 class="error">
+      <%= flash[:error] %>
+    </h3>
+    <% end %>
 
 </body>
 
