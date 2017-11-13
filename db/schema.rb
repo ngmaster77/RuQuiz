@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171111225622) do
+ActiveRecord::Schema.define(version: 20171113200404) do
 
   create_table "cuestionarios", force: :cascade do |t|
     t.string "titulo"
@@ -20,20 +20,14 @@ ActiveRecord::Schema.define(version: 20171111225622) do
     t.float "notamaxima"
   end
 
-  create_table "estadisticas", force: :cascade do |t|
-    t.string "name"
-    t.integer "aprobados"
-    t.integer "realizados"
-    t.integer "suspensos"
-    t.float "media"
-    t.float "porcentajeaprobados"
-    t.float "porcentajeasuspensos"
-  end
-
   create_table "resultados", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "cuestionario_id"
     t.integer "idcuestionario", limit: 8
     t.string "name"
     t.float "nota"
+    t.index ["cuestionario_id"], name: "index_resultados_on_cuestionario_id"
+    t.index ["user_id"], name: "index_resultados_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,6 +35,8 @@ ActiveRecord::Schema.define(version: 20171111225622) do
     t.string "email"
     t.string "password_digest"
     t.boolean "instructor"
+    t.integer "suspensos"
+    t.integer "aprobados"
   end
 
 end

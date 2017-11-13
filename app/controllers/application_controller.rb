@@ -66,8 +66,8 @@ class ApplicationController < Sinatra::Base
 
   get '/home_alumno' do
     @user = User.find(session[:id])
-    @resultados = Resultado.all 
-    erb :home_alumno
+     #prueba = Cuestionario.select("cuestionarios.titulo, resultados.nota").joins(:resultados)
+     erb :home_alumno
   end
 
   get '/home_profesor' do

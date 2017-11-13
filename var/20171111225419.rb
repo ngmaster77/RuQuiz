@@ -1,2 +1,0 @@
-quiz '!' do
-end
