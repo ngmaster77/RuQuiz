@@ -8,4 +8,5 @@ end
 
 use StatsController
 use CuestionarioController
+use ExternalAuthController
 run ApplicationController
