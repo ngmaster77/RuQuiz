@@ -24,7 +24,6 @@ class ExternalAuthController < ApplicationController
     if @user
       redirect to '/home_alumno'
     else
-      puts 'ENTRE A CREAR'
       @user = User.new(name: auth.info.nickname, email: auth.info.email || auth.info.nickname, password: auth.uid)
       @user.instructor = false
     end
