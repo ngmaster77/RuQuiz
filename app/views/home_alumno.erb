@@ -44,12 +44,11 @@
           </h4>
 
           <ul>
-            <%@pruebas.each do |prueba|%>
+            <ul> <%@resultados.each do |resultado|%>
               <li>
-                <h3>
-                  <%=prueba.nota%></h3>
+                  <h3> Titulo: <%=resultado.titulo%> Resultado: <%=resultado.nota%> / <%=resultado.notamaxima%> </h3>
               </li>
-            <%end%>
+            <%end%><ul>
             <ul>
         </div>
       </div>
@@ -60,12 +59,8 @@
 <a href="/showcuestionarios">Ver cuestionarios</a>
 
 
-<h4> Resultados </h4>
 
-<ul> <%@resultados.each do |resultado|%>
-  <li>
-      <h3> <%=resultado.titulo%> <%=resultado.nota%> </h3>
-  </li>
-<%end%><ul>
+
+
     
 
