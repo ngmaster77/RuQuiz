@@ -19,38 +19,34 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-md-8 offset-md-2">
-          <div class="row" id="box">
-            <form action="/login" method="post" id="contenido">
-              <h3>Inicia sesión con tu cuenta</h3>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Nombre</label>
-                <% if flash.has?(:error) %>
-                  <input type="text" class="form-control is-invalid" id="exampleInputEmail1" name="name" placeholder="Nombre">
-                <% else %>
-                  <input type="text" class="form-control" id="exampleInputEmail1" name="name" placeholder="Nombre">
-                <% end %>
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">Contraseña</label>
-                <% if flash.has?(:error) %>
-                  <input type="password" class="form-control is-invalid" id="exampleInputPassword1" name="password" placeholder="Contraseña">
-                  <div class="invalid-feedback">
-                    Usuario o contraseña inválidos.
-                  </div>
-                <% else %>
-                  <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Contraseña">
-                <% end %>
-              </div>
-              <button type="submit" class="btn btn-primary" value="Log in">Iniciar sesión</button>
-              <br><br>
-            </form>
-            <div class="row">
-              <p>¿No tienes cuenta aún?<a href="/registro">
-                  Regístrate</a>
-              </p>
+        <div class="col-md-8 offset-md-2" id="box">
+          <form action="/login" method="post" id="contenido">
+            <h3>Inicia sesión con tu cuenta</h3>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Nombre</label>
+              <% if flash.has?(:error) %>
+                <input type="text" class="form-control is-invalid" id="exampleInputEmail1" name="name" placeholder="Nombre">
+              <% else %>
+                <input type="text" class="form-control" id="exampleInputEmail1" name="name" placeholder="Nombre">
+              <% end %>
             </div>
-          </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Contraseña</label>
+              <% if flash.has?(:error) %>
+                <input type="password" class="form-control is-invalid" id="exampleInputPassword1" name="password" placeholder="Contraseña">
+                <div class="invalid-feedback">
+                  Usuario o contraseña inválidos.
+                </div>
+              <% else %>
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Contraseña">
+              <% end %>
+            </div>
+            <button type="submit" class="btn btn-primary" value="Log in">Iniciar sesión</button>
+            <br><br>
+          </form>
+          <p id="contenido">¿No tienes cuenta aún?<a href="/registro">
+              Regístrate</a>
+          </p>
         </div>
       </div>
     </div>
@@ -62,10 +58,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
-    <!--<% if flash.has?(:error) %>
-      <h3 class="error"><%= flash[:error] %></h3>
-    <% end %>
-    -->
+    <!--<% if flash.has?(:error) %> <h3 class="error"><%= flash[:error] %></h3> <% end %> -->
 
   </body>
 </html>

@@ -19,38 +19,40 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-md-8 offset-md-2">
-          <div class="row" id="box">
-            <form action="/registro" method="post" id="contenido">
-              <h3 id="titulo">Registrate ahora</h3>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Nombre</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" name="name" placeholder="Nombre">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Correo electrónico</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Correo electrónico">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">Contraseña</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Contraseña">
-              </div>
-              <h3>¿Es usted profesor?</h3>
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="radio" name="instructor" id="exampleRadios1" value="yes" checked="checked">
-                  Si
-                </label>
-              </div>
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="radio" name="instructor" id="exampleRadios2" value="no">
-                  No
-                </label>
-              </div>
-              <button type="submit" class="btn btn-primary" value="Registro">Registrarme</button>
-            </form>
-          </div>
+        <div class="col-md-8 offset-md-2" id="box">
+          <form action="/registro" method="post" id="contenido">
+            <h3 id="titulo">Regístrate ahora</h3>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Nombre</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" name="name" placeholder="Nombre">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Correo electrónico</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Correo electrónico">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Contraseña</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Contraseña">
+            </div>
+            <h3>¿Es usted profesor?</h3>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="instructor" id="exampleRadios1" value="yes" checked="checked">
+                Si
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="instructor" id="exampleRadios2" value="no">
+                No
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary" value="Registro">Registrarme</button>
+          </form>
+          <hr>
+          <h4 id="titulo">En caso de tener cuenta en redes sociales:</h4>
+          <a href="/test" id="registro_github" class="btn btn-dark">
+            <i class="fa fa-github fa-lg fa-fw" aria-hidden="true"></i>&nbsp;Registro con Github</a>
         </div>
       </div>
     </div>
