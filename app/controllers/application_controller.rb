@@ -48,6 +48,7 @@ class ApplicationController < Sinatra::Base
     @user = User.find_by(name: params["name"])
     if @user && @user.authenticate(params[:password])
         session[:id] = @user.id
+        puts @user.id
         if @user.instructor
           redirect '/home_profesor'
         else
@@ -66,8 +67,7 @@ class ApplicationController < Sinatra::Base
 
   get '/home_alumno' do
     @user = User.find(session[:id])
-     @pruebas = Resultado.all 
-     puts @pruebas
+    @resultados = Resultado.joins(:user,:cuestionario).where(resultados: {user_id: @user.id}).select("titulo,nota")
      erb :home_alumno
   end
 

@@ -6,6 +6,7 @@ class CuestionarioController < ApplicationController
   end
 
   post '/newcuestionario' do
+    @user = User.find(session[:id])
     array = []
     @data = params.values.to_a
     iterator = 0
@@ -23,10 +24,10 @@ class CuestionarioController < ApplicationController
          iterator += 1 
     end
     @questionario = Questionario.new(@data[0], array)
-    @questionario.write
-    @cuestionario = Cuestionario.new(titulo:@data[0],idcuestionario: @questionario.identificador,npreguntas: array.length, notaaprobar: ((array.length)/2), notamaxima: array.length)
-
+    @cuestionario = Cuestionario.new(titulo:@data[0],creador:@user.name,npreguntas: array.length, notaaprobar: ((array.length)/2), notamaxima: array.length)
     if @cuestionario.save 
+          $identificador = @cuestionario.id
+          @questionario.write($identificador)
           flash[:error] = "Creado con éxito!"
           redirect to '/home_profesor'
     else
@@ -39,7 +40,6 @@ class CuestionarioController < ApplicationController
   get '/showcuestionarios' do
     @cuestionarios = Cuestionario.all
     erb :showcuestionarios
-    
   end
   
 end

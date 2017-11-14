@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171113201047) do
+ActiveRecord::Schema.define(version: 20171114111116) do
 
   create_table "cuestionarios", force: :cascade do |t|
     t.string "titulo"
-    t.integer "idcuestionario", limit: 8
+    t.string "creador"
     t.integer "npreguntas"
     t.float "notaaprobar"
     t.float "notamaxima"
@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 20171113201047) do
   create_table "resultados", force: :cascade do |t|
     t.integer "user_id"
     t.integer "cuestionario_id"
-    t.integer "idcuestionario", limit: 8
     t.string "name"
     t.float "nota"
     t.index ["cuestionario_id"], name: "index_resultados_on_cuestionario_id"

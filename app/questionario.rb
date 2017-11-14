@@ -6,19 +6,14 @@ require './app/seleccion'
 class Questionario
   
   @preguntas = []
-  attr_accessor :titulo, :identificador
+  attr_accessor :titulo
   
   def initialize (titulo, array)
     @titulo = titulo
     @preguntas = array
-    @identificador = Time.new.strftime("%Y-%m-%d %H:%M:%S")
-    parse()
-    
-    
   end
   
-  def write 
-    
+  def write(id)
       r = "quiz " + "'#{@titulo}'" + " do\n"
       @preguntas.each { |x| 
         r << x.toRUQL
@@ -26,22 +21,8 @@ class Questionario
       }
       r << "end"
       puts r
-      File.open("./var/#{@identificador}.rb","w+"){|f| f.write(r) }
-      
+      File.open("./var/#{id}.rb","w+"){|f| f.write(r) }
   end
-  
-  def parse 
-
-    @identificador = @identificador.to_s
-    @identificador = @identificador.split('-')
-    @identificador = @identificador.join()
-    @identificador = @identificador.split(' ')
-    @identificador = @identificador.join()
-    @identificador = @identificador.split(':')
-    @identificador = @identificador.join()
-    
-  end
-  
 end
 
 
