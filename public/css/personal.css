@@ -57,3 +57,8 @@ hr {
 #body_home {
   background-color: #e9ecef;
 }
+
+li.nav-item.active {
+  background-color: rgba(0,0,0,0.1);
+  border-radius: 5px;
+}

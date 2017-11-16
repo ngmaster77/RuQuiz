@@ -81,4 +81,10 @@ class ApplicationController < Sinatra::Base
     @resultados = Resultado.joins(:user,:cuestionario).where(resultados: {user_id: @user.id}).select("titulo,nota,notamaxima")
     erb :search
   end
+
+  get '/stats' do
+    @user = User.find(session[:id])
+    @resultados = Resultado.joins(:user,:cuestionario).where(resultados: {user_id: @user.id}).select("titulo,nota,notamaxima")
+    erb :stats
+  end
 end
