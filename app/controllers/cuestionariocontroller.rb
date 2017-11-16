@@ -18,13 +18,13 @@ class CuestionarioController < ApplicationController
            @completar = PreguntaRelleno.new(@data[iterator+1],@data[iterator+2])
            array << @completar
          elsif @data[iterator] == '3'
-           @seleccion = PreguntaSeleccion.new(@data[iterator+1],@data[iterator+2])
+           @seleccion = PreguntaSeleccion.new(@data[iterator+1],@data[iterator+2],@data[iterator+3])
            array << @seleccion
          end
          iterator += 1
     end
     @questionario = Questionario.new(@data[0], array)
-    @cuestionario = Cuestionario.new(titulo:@data[0],creador:@user.name,npreguntas: array.length, notaaprobar: ((array.length)/2), notamaxima: array.length)
+    @cuestionario = Cuestionario.new(titulo:@data[0],descripcion:@data[1],creador:@user.name,npreguntas: array.length, notaaprobar: ((array.length)/2), notamaxima: array.length)
     if @cuestionario.save
           $identificador = @cuestionario.id
           @questionario.write($identificador)

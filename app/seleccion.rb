@@ -5,7 +5,7 @@ class PreguntaSeleccion < Pregunta
    def initialize(texto,correcta,respuestas)
      @text = texto
      @answer = correcta
-     @distractors = respuestas
+     @distractors = respuestas.split(",")
    end
    
    

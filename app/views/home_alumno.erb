@@ -50,12 +50,12 @@
             <div class="col-md-4">
               <div class="card text-center">
                 <div class="card-header">
-                  PENDIENTE: CREADOR
+                  Autor: <%=resultado.creador%>
                 </div>
                 <div class="card-body">
                   <h4 class="card-title"><%=resultado.titulo%></h4>
-                  <p class="card-text">PENDIENTE: DESCRIPCION</p>
-                  <a href="#" class="btn btn-outline-primary">Resolver</a>
+                  <p class="card-text"><%=resultado.descripcion%></p>
+                  <a href="/cuestionario/<%=resultado.cuestionario_id%>" class="btn btn-outline-primary">Resolver</a>
                 </div>
                 <div class="card-footer text-muted">
                   <%=resultado.nota%>
