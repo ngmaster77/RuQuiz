@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/personal.css">
-    <title>RuQuiz - Home</title>
+    <link rel="stylesheet" href="css/search.css">
+    <title>RuQuiz - Buscar</title>
   </head>
 
   <body id="body_home">
@@ -24,47 +24,41 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="/home">Mis cuestionarios
+            <a class="nav-link" href="/home">Mis cuestionarios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/search">Buscar
               <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/search">Buscar</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/stats">Estadisticas</a>
+            <a class="nav-link" href="/stats">Estadísticas</a>
           </li>
         </ul>
         <span class="navbar-text" id="bienvenido">
-          ¡Hola,
-          <%=@user.name%>!
+          <%=@user.name%>
         </span>
         <a href="/logout" class="btn btn-danger my-2 my-sm-0" role="button">Salir</a>
       </div>
     </nav>
 
+    <br>
     <div class="row">
-      <div class="col-md-10 offset-md-1">
-        <br>
+      <div class="col-md-8 offset-md-2">
         <div class="row">
-          <%@resultados.each do |resultado|%>
-            <div class="col-md-4">
-              <div class="card text-center">
-                <div class="card-header">
-                  PENDIENTE: CREADOR
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title"><%=resultado.titulo%></h4>
-                  <p class="card-text">PENDIENTE: DESCRIPCION</p>
-                  <a href="#" class="btn btn-outline-primary">Resolver</a>
-                </div>
-                <div class="card-footer text-muted">
-                  <%=resultado.nota%>
-                  /
-                  <%=resultado.notamaxima%>
-                </div>
-              </div>
+          <div class="col-md-12">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Buscar cuestionario..." aria-label="Search for...">
+              <span class="input-group-btn">
+                <button class="btn btn-secondary" type="button">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+              </span>
             </div>
-          <%end%>
+          </div>
+        </div>
+        <br>
+        <div class="alert alert-danger text-center" role="alert">
+          Se han encontrado 0 resultados que coinciden con su búsqueda.
         </div>
       </div>
     </div>
@@ -74,5 +68,6 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  <script src="https://use.fontawesome.com/84656ba81e.js"></script>
 
 </html>

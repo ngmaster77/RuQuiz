@@ -10,7 +10,7 @@ class CuestionarioController < ApplicationController
     array = []
     @data = params.values.to_a
     iterator = 0
-    while iterator < @data.length 
+    while iterator < @data.length
          if @data[iterator] == '1'
            @verdadero = PreguntaVerdadero.new(@data[iterator+1],@data[iterator+2])
            array << @verdadero
@@ -21,11 +21,11 @@ class CuestionarioController < ApplicationController
            @seleccion = PreguntaSeleccion.new(@data[iterator+1],@data[iterator+2])
            array << @seleccion
          end
-         iterator += 1 
+         iterator += 1
     end
     @questionario = Questionario.new(@data[0], array)
     @cuestionario = Cuestionario.new(titulo:@data[0],creador:@user.name,npreguntas: array.length, notaaprobar: ((array.length)/2), notamaxima: array.length)
-    if @cuestionario.save 
+    if @cuestionario.save
           $identificador = @cuestionario.id
           @questionario.write($identificador)
           flash[:error] = "Creado con éxito!"
@@ -35,11 +35,11 @@ class CuestionarioController < ApplicationController
           redirect to '/newcuestionario'
     end
   end
-  
-  
+
+
   get '/showcuestionarios' do
     @cuestionarios = Cuestionario.all
     erb :showcuestionarios
   end
-  
+
 end

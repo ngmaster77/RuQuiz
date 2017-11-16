@@ -75,4 +75,10 @@ class ApplicationController < Sinatra::Base
     @user = User.find(session[:id])
     erb :home_profesor
   end
+
+  get '/search' do
+    @user = User.find(session[:id])
+    @resultados = Resultado.joins(:user,:cuestionario).where(resultados: {user_id: @user.id}).select("titulo,nota,notamaxima")
+    erb :search
+  end
 end
