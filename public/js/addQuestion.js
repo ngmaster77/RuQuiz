@@ -1,5 +1,7 @@
 $(document).ready(function() {
     var pregunta = 1;
+
+    /* Añadir pregunta de tipo: Verdadero o Falso */
     $("#add1").click(function() {        
         var questionTitle = "<hr><h3>Pregunta " + pregunta + " <small class=\"text-muted\">(Verdadero o Falso)</small></h3>";
         var questionType = "<div class=\"form-group\"><input type=\"text\" class=\"form-control\" name=\"inputQuestionType" + pregunta + "\" value=\"1\" hidden></div>";
@@ -11,6 +13,8 @@ $(document).ready(function() {
         fieldWrapper.append(question);
         $(".questions").append(fieldWrapper);
     });
+
+    /* Añadir pregunta de tipo: Completar */
     $("#add2").click(function() {
         var questionTitle = "<hr><h3>Pregunta " + pregunta + " <small class=\"text-muted\">(Completar)</small></h3>";
         var questionType = "<div class=\"form-group\"><input type=\"text\" class=\"form-control\" name=\"inputQuestionType" + pregunta + "\" value=\"2\" hidden></div>";
@@ -22,6 +26,8 @@ $(document).ready(function() {
         fieldWrapper.append(question);
         $(".questions").append(fieldWrapper);
     });
+
+    /* Añadir pregunta de tipo: Multirespuesta */
     $("#add3").click(function() {
         var questionTitle = "<hr><h3>Pregunta " + pregunta + " <small class=\"text-muted\">(Multirespuesta)</small></h3>";
         var questionType = "<div class=\"form-group\"><input type=\"text\" class=\"form-control\" name=\"inputQuestionType" + pregunta + "\" value=\"3\" hidden></div>";
@@ -34,18 +40,26 @@ $(document).ready(function() {
         fieldWrapper.append(question);
         $(".questions").append(fieldWrapper);
     });
+
+    /* Eliminar todas las preguntas */
     $("#deleteAll").click(function() {
         pregunta = 1;
         $(".questions").empty();
     });
 
-    //  Bind the event handler to the "submit" JavaScript event
+    /* Impedir que se pueda enviar el formulario sin preguntas */
     $('form').submit(function () {
         if ($('#questionsContainer').is(':empty')){
-            console.log("no hay preguntas")
+            console.log("no hay preguntas");
+            var alertText = "Debe añadir <strong>al menos 1 pregunta</strong> para crear el cuestionario.";
+            var alert = "<br><div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">" + alertText + "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button></div>";
+            $("#alertEmptyQuestions").append(alert);
             return false;
         }
     });
+
+    /* Permitir cerrar una alerta */
+    $(".alert").alert()
 });
 
 /* Función que comprueba que el cuestionario tiene título y descripción */
