@@ -11,16 +11,30 @@
 </head>
 
 <body>
-
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/home">
       <img src="images/ruby.png" width="30" height="30" class="d-inline-block align-top" alt=""> RuQuiz
     </a>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav mr-auto"></ul>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/home_alumno">Mis cuestionarios
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/search">Buscar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/stats">Estadísticas</a>
+        </li>
+      </ul>
       <span class="navbar-text" id="bienvenido">
-        ¡Profesor
-        <%=@user.name%>!
+        @<%=@user.name%>
       </span>
       <a href="/logout" class="btn btn-danger my-2 my-sm-0" role="button">Salir</a>
     </div>
@@ -35,20 +49,24 @@
           <div class="card-body">
             <h2>Información básica</h2>
             <div class="form-group">
-              <label for="inputTitle">Título<small class="text-muted"> (Max. 50 caracteres)</small></label>
+              <label for="inputTitle">Título
+                <small class="text-muted"> (Max. 50 caracteres)</small>
+              </label>
               <input type="text" class="form-control" id="inputTitle" name="inputTitle" maxlength="50" required>
               <div class="invalid-feedback">
                 Para añadir un cuestionario debe indicar un título.
               </div>
             </div>
             <div class="form-group">
-              <label for="inputDesc">Descripción<small class="text-muted"> (Max. 150 caracteres)</small></label>
-              <textarea class="form-control" id="inputDesc" rows="2" name="inputDesc" maxlength="150"required></textarea>
+              <label for="inputDesc">Descripción
+                <small class="text-muted"> (Max. 150 caracteres)</small>
+              </label>
+              <textarea class="form-control" id="inputDesc" rows="2" name="inputDesc" maxlength="150" required></textarea>
               <div class="invalid-feedback">
                 Para añadir un cuestionario debe indicar una descripción.
               </div>
             </div>
-            <div class="questions"></div>
+            <div id="questionsContainer" class="questions"></div>
             <hr>
             <div class="row">
               <div class="col-12">
@@ -111,12 +129,6 @@
     crossorigin="anonymous"></script>
   <script src="https://use.fontawesome.com/84656ba81e.js"></script>
   <script src="js/addQuestion.js"></script>
-
-  <% if flash.has?(:error) %>
-    <h3 class="error">
-      <%= flash[:error] %>
-    </h3>
-    <% end %>
 
 </body>
 
