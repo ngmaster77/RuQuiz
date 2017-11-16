@@ -35,15 +35,15 @@
           <div class="card-body">
             <h2>Información básica</h2>
             <div class="form-group">
-              <label for="inputTitle">Título</label>
-              <input type="text" class="form-control" id="inputTitle" name="inputTitle" required>
+              <label for="inputTitle">Título<small class="text-muted"> (Max. 50 caracteres)</small></label>
+              <input type="text" class="form-control" id="inputTitle" name="inputTitle" maxlength="50" required>
               <div class="invalid-feedback">
                 Para añadir un cuestionario debe indicar un título.
               </div>
             </div>
             <div class="form-group">
-              <label for="inputDesc">Descripción</label>
-              <textarea class="form-control" id="inputDesc" rows="2" name="inputDesc" required></textarea>
+              <label for="inputDesc">Descripción<small class="text-muted"> (Max. 150 caracteres)</small></label>
+              <textarea class="form-control" id="inputDesc" rows="2" name="inputDesc" maxlength="150"required></textarea>
               <div class="invalid-feedback">
                 Para añadir un cuestionario debe indicar una descripción.
               </div>
