@@ -2,7 +2,8 @@ class Createtodo < ActiveRecord::Migration[5.1]
   def change
     drop_table :cuestionarios
     create_table :cuestionarios  do |t|
-      t.string :titulo 
+      t.string :titulo
+      t.string :descripcion 
       t.string :creador
       t.integer :npreguntas
       t.float :notaaprobar
