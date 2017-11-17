@@ -1,0 +1,2 @@
+quiz 'aaa' do
+end
