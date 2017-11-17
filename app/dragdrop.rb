@@ -1,4 +1,4 @@
-class PreguntaRelleno < Pregunta
+class DragDrop < Pregunta
   
   attr_accessor :text, :answer
   
@@ -9,11 +9,12 @@ class PreguntaRelleno < Pregunta
    end
     
    def toRUQL
-     r = "fill_in do "
+     r = "drag_drop_fill_in do "
      r << "text " + "'#{@text}' " + "\n"
      r << "answer " + "#{@answer}" + " "
      r << "end"
      r 
+     puts r
    end
    
    
@@ -35,10 +36,11 @@ class PreguntaRelleno < Pregunta
      
      @text = @text.join(' ')
      @answer = @answer.downcase 
-     @answer = @answer.split(',').to_s.gsub('"','/')
+     @answer = @answer.split(',').to_s.gsub('"','\'')
      
    end
    
 end
 
-
+A = DragDrop.new('La capital de USA es - y está en la costa -', 'Washington,este')
+A.toRUQL

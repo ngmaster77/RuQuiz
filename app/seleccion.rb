@@ -1,44 +1,20 @@
-class PreguntaRelleno < Pregunta
-  
+class PreguntaSeleccion < Pregunta
   attr_accessor :text, :answer
+  @distractors = []
   
-   def initialize(texto,respuesta)
+   def initialize(texto,correcta,respuestas)
      @text = texto
-     @answer = respuesta
-     parse()
+     @answer = correcta
+     @distractors = respuestas.split(",")
    end
-    
+   
+   
    def toRUQL
-     r = "fill_in do "
-     r << "text " + "'#{@text}' " + "\n"
-     r << "answer " + "#{@answer}" + " "
+     r = "choice_answer do "
+     r << "text " + "'#{@text}'" + "\n"
+     r << "answer " + "'#{@answer}'" + "\n"
+     @distractors.each {|dis| r << "distractor '#{dis}'\n" }
      r << "end"
-     r 
+     r
    end
-   
-   
-   def parse
-     @text = @text.split()
-     aux = @answer.split(',')
-     i = 0 
-     j = 0
-     
-     while i < @text.length 
-       if @text[i] == '-'
-          while @text[i].length != aux[j].length
-                @text[i] << '-'
-          end
-          j += 1
-       end
-        i += 1 
-     end
-     
-     @text = @text.join(' ')
-     @answer = @answer.downcase 
-     @answer = @answer.split(',').to_s.gsub('"','/')
-     
-   end
-   
 end
-   
-
