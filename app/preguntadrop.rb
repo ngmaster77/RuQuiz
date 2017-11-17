@@ -1,4 +1,4 @@
-class DragDrop < Pregunta
+class PreguntaDrop < Pregunta
   
   attr_accessor :text, :answer
   
@@ -14,7 +14,6 @@ class DragDrop < Pregunta
      r << "answer " + "#{@answer}" + " "
      r << "end"
      r 
-     puts r
    end
    
    
@@ -41,6 +40,3 @@ class DragDrop < Pregunta
    end
    
 end
-
-A = DragDrop.new('La capital de USA es - y está en la costa -', 'Washington,este')
-A.toRUQL

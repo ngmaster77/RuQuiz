@@ -2,6 +2,8 @@ require './app/pregunta'
 require './app/preguntarelleno'
 require './app/truefalse'
 require './app/seleccion'
+require './app/preguntadrop'
+require './app/relation'
 
 class Questionario
   

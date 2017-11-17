@@ -1589,7 +1589,7 @@ CodeMirror.defineMIME("application/typescript", { name: "javascript", typescript
           </div>
         </div>
       
-      <!-- Seed: 66477410627780955416678892663587402566 -->
+      <!-- Seed: 120462588111664450929560065775923089744 -->
 <form id="form">
   <ol class="questions">
     <li id="question-0" class="question fillin ">
@@ -1610,6 +1610,40 @@ true)"
       <br>
       </br>
     </li>
+    <li id="question-2" class="question dragdrop_mc ">
+      <div class="quiz text">
+[1 point] Relacioname esta<br></br>      </div>
+      <ol class="answers">
+        <div>
+          <div id="col1-q3-qddmc" class="col1">
+            <a class="btn btn-default btn-sm disabled button-q3-qddmc" draggable="false">
+Facebook            </a>
+            <br/>
+            <a class="btn btn-default btn-sm disabled button-q3-qddmc" draggable="false">
+twitter            </a>
+            <br/>
+          </div>
+          <div id="col2-q3-qddmc" class="col2">
+            <input id="qddmc3-1" name="qddmc3-1" type="text" class="dragdropmc input-qddmc" ondrop="drop(event, 'qddmc3-1', true)" ondragover="allowDrop(event)"/>
+            <br/>
+            <input id="qddmc3-2" name="qddmc3-2" type="text" class="dragdropmc input-qddmc" ondrop="drop(event, 'qddmc3-2', true)" ondragover="allowDrop(event)"/>
+            <br/>
+          </div>
+          <div id="col3-q2-qddmc" class="col3">
+            <a id="qddmca3-1" name="qddmca3-1" class="btn btn-default btn-sm button-qddmc" draggable="true" ondragstart="drag(event)">
+hola2            </a>
+            <br/>
+            <a id="qddmca3-2" name="qddmca3-2" class="btn btn-default btn-sm button-qddmc" draggable="true" ondragstart="drag(event)">
+Hola1            </a>
+            <br/>
+          </div>
+        </div>
+        <div class="clear-qdd"/>
+        <br/>
+      </ol>
+    </li>
+    <br>
+    </br>
   </ol>
   <div id="score" class="score">
   </div>
@@ -1708,11 +1742,11 @@ var XRegExp;XRegExp=XRegExp||function(n){"use strict";function v(n,i,r){var u;fo
     
       <script type="text/javascript">
         
-      data = {"question-0":{"question_text":"La capital de USA es ---------- y está en el ----","answers":{"qfi1-1":{"answer_text":"/washington/","correct":true,"explanation":null,"type":"Regexp"},"qfi1-2":{"answer_text":"/este/","correct":true,"explanation":null,"type":"Regexp"}},"points":1,"order":true,"question_comment":""},"question-1":{"question_text":"The ---- brown fox jumped over the lazy ----","answers":{"qddfi2-1":{"answer_text":"fox","correct":true,"explanation":null,"type":"String"},"qddfi2-2":{"answer_text":"dog","correct":true,"explanation":null,"type":"String"}},"points":1,"order":true,"question_comment":""}};
-      timestamp = 1510943517
+      data = {"question-0":{"question_text":"La capital de USA es ---------- y está en el ----","answers":{"qfi1-1":{"answer_text":"/washington/","correct":true,"explanation":null,"type":"Regexp"},"qfi1-2":{"answer_text":"/este/","correct":true,"explanation":null,"type":"Regexp"}},"points":1,"order":true,"question_comment":""},"question-1":{"question_text":"The ---- brown fox jumped over the lazy ----","answers":{"qddfi2-1":{"answer_text":"fox","correct":true,"explanation":null,"type":"String"},"qddfi2-2":{"answer_text":"dog","correct":true,"explanation":null,"type":"String"}},"points":1,"order":true,"question_comment":""},"question-2":{"question_text":"Relacioname esta","answers":{"qddmc3-1":{"answer_text":{"Facebook":"Hola1"},"correct":true,"explanation":null,"type":"Hash"},"qddmc3-2":{"answer_text":{"twitter":"hola2"},"correct":true,"explanation":null,"type":"Hash"}},"points":1,"question_comment":""}};
+      timestamp = 1510946125
       timestamp = timestamp.toString();
       language = 'es';
-      totalPoints = 2;
+      totalPoints = 3;
       userPoints = 0;
       
       function findCorrectAnswer(idQuestion, questionType) {
