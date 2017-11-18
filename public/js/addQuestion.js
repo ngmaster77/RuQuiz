@@ -51,8 +51,9 @@ $(document).ready(function() {
     $('form').submit(function () {
         if ($('#questionsContainer').find($(".questionWrapper")).length == 0){
             var alertText = "Debe añadir <strong>al menos 1 pregunta</strong> para crear el cuestionario.";
-            var alert = "<br><div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">" + alertText + "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button></div>";
+            var alert = "<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">" + alertText + "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button></div>";
             $("#alertEmptyQuestions").append(alert);
+            window.scrollTo(0,0);
             return false;
         }
     });
