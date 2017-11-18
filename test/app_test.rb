@@ -47,4 +47,13 @@ describe '# Prueba inicio de sesión/registro', type: :feature do
     expect(current_path).to eql('/home_alumno')
     User.find_by(name: 'testuser').delete
   end
+
+  it 'Cerrar sesión' do
+    visit '/login'
+    fill_in 'name', with: 'profesor'
+    fill_in 'password', with: '12345'
+    click_button 'Log in'
+    click_link('logout')
+    expect(current_path).to eql('/login')
+  end
 end
