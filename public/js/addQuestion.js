@@ -41,6 +41,33 @@ $(document).ready(function() {
         $(".questions").append(fieldWrapper);
     });
 
+    /* Añadir pregunta de tipo: Drag and Drop */
+    $("#add4").click(function() {
+        var questionTitle = "<hr><h3>Pregunta " + pregunta + " <small class=\"text-muted\">(Arrastrar y Colocar)</small> <button id=\"deleteQuestion-" + pregunta + "\" type=\"button\" class=\"btn btn-danger btn-sm deleteButton\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></button></h3>";
+        var questionType = "<div class=\"form-group\"><input type=\"text\" class=\"form-control\" name=\"inputQuestionType" + pregunta + "\" value=\"4\" hidden></div>";
+        var inputQuestion = "<div class=\"form-group\"><label for=\"inputQuestionDragDrop" + pregunta + "\">Enunciado</label><input type=\"text\" class=\"form-control\" id=\"inputQuestionDragDrop" + pregunta + "\" name=\"inputQuestionDragDrop" + pregunta + "\" placeholder=\"La fórmula química del dióxido de carbono es - y la del ozono es -.\" required><small class=\"form-text text-muted\">Escribe un guión (-) donde quieras añadir el espacio en blanco.</small></div>";
+        var inputAnswer = "<div class=\"form-group\"><label for=\"inputAnswerDragDrop" + pregunta + "\">Respuesta Correcta</label><input type=\"text\" class=\"form-control\" id=\"inputAnswerDragDrop" + pregunta + "\" name=\"inputAnswerDragDrop" + pregunta + "\" placeholder=\"CO2,O3\" required><small class=\"form-text text-muted\">Escribe las respuestas correctas separadas por coma sin espacios.</small></div>";
+        var question = questionTitle + questionType + inputQuestion + inputAnswer;
+        var fieldWrapper = $("<div class=\"questionWrapper\" id=\"question" + pregunta + "\"</div>");
+        pregunta++;
+        fieldWrapper.append(question);
+        $(".questions").append(fieldWrapper);
+    });
+
+    /* Añadir pregunta de tipo: Relacionar */
+    $("#add5").click(function() {
+        var questionTitle = "<hr><h3>Pregunta " + pregunta + " <small class=\"text-muted\">(Relacionar)</small> <button id=\"deleteQuestion-" + pregunta + "\" type=\"button\" class=\"btn btn-danger btn-sm deleteButton\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></button></h3>";
+        var questionType = "<div class=\"form-group\"><input type=\"text\" class=\"form-control\" name=\"inputQuestionType" + pregunta + "\" value=\"5\" hidden></div>";
+        var inputTitle = "<div class=\"form-group\"><label for=\"inputTitleRelation" + pregunta + "\">Enunciado</label><input type=\"text\" class=\"form-control\" id=\"inputTitleRelation" + pregunta + "\" name=\"inputTitleRelation" + pregunta + "\" placeholder=\"Relacionar los siguientes términos:\" required><small class=\"form-text text-muted\">Introduce el enunciado de la pregunta.</small></div>";
+        var inputQuestion = "<div class=\"form-group\"><label for=\"inputQuestionRelation" + pregunta + "\">Preguntas</label><input type=\"text\" class=\"form-control\" id=\"inputQuestionRelation" + pregunta + "\" name=\"inputQuestionRelation" + pregunta + "\" placeholder=\"Manzana,Rojo,Pera,Melocotón,Amarillo.\" required><small class=\"form-text text-muted\">Introduce las preguntas separadas por coma sin espacios.</small></div>";
+        var inputAnswer = "<div class=\"form-group\"><label for=\"inputAnswerRelation" + pregunta + "\">Respuestas</label><input type=\"text\" class=\"form-control\" id=\"inputAnswerRelation" + pregunta + "\" name=\"inputAnswerRelation" + pregunta + "\" placeholder=\"Fruta,Color,Fruta,Fruta,Color.\" required><small class=\"form-text text-muted\">Escribe las respuestas en el mismo orden que las preguntas separadas por coma.</small></div>";
+        var question = questionTitle + questionType + inputTitle + inputQuestion + inputAnswer;
+        var fieldWrapper = $("<div class=\"questionWrapper\"id=\"question" + pregunta + "\"</div>");
+        pregunta++;
+        fieldWrapper.append(question);
+        $(".questions").append(fieldWrapper);
+    });
+
     /* Eliminar todas las preguntas */
     $("#deleteAll").click(function() {
         pregunta = 1;
