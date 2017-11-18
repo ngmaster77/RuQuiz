@@ -1,0 +1,8 @@
+example_id              | status | run_time        |
+----------------------- | ------ | --------------- |
+./test/app_test.rb[1:1] | passed | 0.05212 seconds |
+./test/app_test.rb[1:2] | passed | 0.00241 seconds |
+./test/app_test.rb[1:3] | passed | 0.00273 seconds |
+./test/app_test.rb[2:1] | passed | 0.09427 seconds |
+./test/app_test.rb[2:2] | passed | 0.09243 seconds |
+./test/app_test.rb[2:3] | passed | 0.07644 seconds |

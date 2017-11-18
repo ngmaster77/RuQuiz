@@ -39,6 +39,7 @@ GEM
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
     concurrent-ruby (1.0.5)
+    diff-lcs (1.3)
     dotenv (2.2.1)
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
@@ -88,6 +89,19 @@ GEM
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     require_all (1.4.0)
+    rspec (3.7.0)
+      rspec-core (~> 3.7.0)
+      rspec-expectations (~> 3.7.0)
+      rspec-mocks (~> 3.7.0)
+    rspec-core (3.7.0)
+      rspec-support (~> 3.7.0)
+    rspec-expectations (3.7.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.7.0)
+    rspec-mocks (3.7.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.7.0)
+    rspec-support (3.7.0)
     sass (3.5.3)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -122,6 +136,7 @@ DEPENDENCIES
   rack-flash3
   rake
   require_all
+  rspec
   ruql!
   sinatra
   sinatra-activerecord
