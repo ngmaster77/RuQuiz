@@ -25,7 +25,7 @@ class ApplicationController < Sinatra::Base
   post '/registro' do
     @user = User.find_by(name: params["name"])
     if @user
-      flash[:error] = "Usuario ya existe"
+      flash[:errorInvalidName] = "Nombre de usuario no disponible. Introduzca un nombre diferente."
       redirect to '/registro'
     else
       @user = User.new(name: params["name"], email: params["email"], password: params["password"])
@@ -39,7 +39,7 @@ class ApplicationController < Sinatra::Base
           redirect '/home_alumno'
         end
     else
-        flash[:error] = "No se ha creado el usuario correctamente"
+        flash[:error] = "No se ha creado el usuario correctamente."
         redirect to '/registro'
     end
   end
@@ -82,7 +82,9 @@ class ApplicationController < Sinatra::Base
 
   get '/search' do
     @user = User.find(session[:id])
-    @resultados = Resultado.joins(:user,:cuestionario).where(resultados: {user_id: @user.id}).select("titulo,nota,notamaxima")
+    if params
+      @searches = Cuestionario.where(cuestionarios: {titulo: params["quiz"]})
+    end
     erb :search
   end
 
