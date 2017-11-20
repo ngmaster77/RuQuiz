@@ -21,7 +21,7 @@
       <div class="row">
         <div class="col-md-8 offset-md-2" id="box">
           <form action="/login" method="post" id="contenido">
-            <h3>Inicia sesión con tu cuenta</h3>
+            <h3>Iniciar sesión</h3>
             <div class="form-group">
               <label for="exampleInputEmail1">Nombre</label>
               <% if flash.has?(:error) %>
@@ -41,14 +41,20 @@
                 <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Contraseña">
               <% end %>
             </div>
-            <button type="submit" class="btn btn-primary" value="Log in">Iniciar sesión</button>
-            <br><br>
+            <div class="row">
+              <div class="col-12">
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary" value="Log in">Iniciar sesión</button>
+                </div>
+              </div>
+            </div>
+            <br>
           </form>
           <p id="contenido">¿No tienes cuenta aún?<a href="/registro">
               Regístrate</a>
           </p>
-          <br>
-          <h4 id="titulo">Inicia sesión con tus redes sociales (sólo alumnos)</h4>
+          <hr>
+          <p id="titulo">o inicia sesión con uno de estos servicios:</p>
           <a href="/auth/github" id="registro_github" class="btn btn-dark">
             <i class="fa fa-github fa-lg fa-fw" aria-hidden="true"></i>&nbsp;Inicio con Github</a>
         </div>
