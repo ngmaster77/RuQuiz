@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>titulo prueba</title>
+    <title>Cuestionario3</title>
     <!-- Bootstrap CSS -->
     
       <style type="text/css">
@@ -1573,7 +1573,7 @@ CodeMirror.defineMIME("application/typescript", { name: "javascript", typescript
       
         <div class="navbar navbar-default custom-header">
           <div class="navbar-header">
-            <h3>titulo prueba</h3>
+            <h3>Cuestionario3</h3>
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
@@ -1585,34 +1585,41 @@ CodeMirror.defineMIME("application/typescript", { name: "javascript", typescript
           </div>
         </div>
       
-      <!-- Seed: 160214762989673265482978177775456807500 -->
+      <!-- Seed: 147191727193682481196392780988987151984 -->
 <form id="form">
   <ol class="questions">
-    <li id="question-0" class="question multiplechoice ">
+    <li id="question-0" class="question dragdrop_mc ">
       <div class="quiz text">
-[1 point] enunciado<br></br>      </div>
+[1 point] Relaciona los siguientes terminos<br></br>      </div>
       <ol class="answers">
-        <input type="radio" id="qmc1-1" name="qmc1" class="select">
-correcta<br class="qmc1-1br">        </input>
-        <div id="qmc1-1r" class="quiz">
+        <div>
+          <div id="col1-q1-qddmc" class="col1">
+            <a class="btn btn-default btn-sm disabled button-q1-qddmc" draggable="false">
+Charo            </a>
+            <br/>
+            <a class="btn btn-default btn-sm disabled button-q1-qddmc" draggable="false">
+Cunt            </a>
+            <br/>
+          </div>
+          <div id="col2-q1-qddmc" class="col2">
+            <input id="qddmc1-1" name="qddmc1-1" type="text" class="dragdropmc input-qddmc" ondrop="drop(event, 'qddmc1-1', true)" ondragover="allowDrop(event)"/>
+            <br/>
+            <input id="qddmc1-2" name="qddmc1-2" type="text" class="dragdropmc input-qddmc" ondrop="drop(event, 'qddmc1-2', true)" ondragover="allowDrop(event)"/>
+            <br/>
+          </div>
+          <div id="col3-q0-qddmc" class="col3">
+            <a id="qddmca1-1" name="qddmca1-1" class="btn btn-default btn-sm button-qddmc" draggable="true" ondragstart="drag(event)">
+AnnaGabriel            </a>
+            <br/>
+            <a id="qddmca1-2" name="qddmca1-2" class="btn btn-default btn-sm button-qddmc" draggable="true" ondragstart="drag(event)">
+InesArrimadas            </a>
+            <br/>
+          </div>
         </div>
-        <input type="radio" id="qmc1-2" name="qmc1" class="select">
-incorrecta<br class="qmc1-2br">        </input>
-        <div id="qmc1-2r" class="quiz">
-        </div>
-        <input type="radio" id="qmc1-3" name="qmc1" class="select">
-incorrecta<br class="qmc1-3br">        </input>
-        <div id="qmc1-3r" class="quiz">
-        </div>
-        <input type="radio" id="qmc1-4" name="qmc1" class="select">
-incorrecta<br class="qmc1-4br">        </input>
-        <div id="qmc1-4r" class="quiz">
-        </div>
+        <div class="clear-qdd"/>
         <br/>
       </ol>
     </li>
-    <a id="show-answer-q-0" class="btn btn-success btn-sm">
-Mostrar respuesta    </a>
     <br>
     </br>
   </ol>
@@ -1713,8 +1720,8 @@ var XRegExp;XRegExp=XRegExp||function(n){"use strict";function v(n,i,r){var u;fo
     
       <script type="text/javascript">
         
-      data = {"question-0":{"question_text":"enunciado","answers":{"qmc1-1":{"answer_text":"correcta","correct":true,"explanation":null},"qmc1-2":{"answer_text":"incorrecta","correct":false,"explanation":""},"qmc1-3":{"answer_text":"incorrecta","correct":false,"explanation":""},"qmc1-4":{"answer_text":"incorrecta","correct":false,"explanation":""}},"points":1,"question_comment":""}};
-      timestamp = 1511175605
+      data = {"question-0":{"question_text":"Relaciona los siguientes terminos","answers":{"qddmc1-1":{"answer_text":{"Charo":"AnnaGabriel"},"correct":true,"explanation":null,"type":"Hash"},"qddmc1-2":{"answer_text":{"Cunt":"InesArrimadas"},"correct":true,"explanation":null,"type":"Hash"}},"points":1,"question_comment":""}};
+      timestamp = 1511175614
       timestamp = timestamp.toString();
       language = 'es';
       totalPoints = 1;

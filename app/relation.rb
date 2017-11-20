@@ -17,9 +17,6 @@ class PreguntaRelation < Pregunta
      r << "relation " + @result + " \n"
      r << "end"
      r 
-     puts r 
-     
-     
    end
    
    def parse 

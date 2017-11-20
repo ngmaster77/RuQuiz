@@ -19,6 +19,12 @@ class CuestionarioController < ApplicationController
       elsif @data[iterator] == '3'
         @seleccion = PreguntaSeleccion.new(@data[iterator + 1], @data[iterator + 2], @data[iterator + 3])
         array << @seleccion
+      elsif @data[iterator] == '4'
+        @drop = PreguntaDrop.new(@data[iterator + 1], @data[iterator + 2])
+        array << @drop
+      elsif @data[iterator] == '5'
+        @relation = PreguntaRelation.new(@data[iterator + 1], @data[iterator + 2], @data[iterator + 3])
+        array << @relation
       end
       iterator += 1
     end
