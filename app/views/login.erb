@@ -20,25 +20,26 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 offset-md-3 col-10 offset-1" id="box">
-        <form action="/login" method="post" id="contenido">
+        <form action="/login" method="post" id="contenido" novalidate>
           <h3>Iniciar sesión</h3>
           <div class="form-group">
             <label for="exampleInputEmail1">Nombre</label>
             <% if flash.has?(:error) %>
-              <input type="text" class="form-control is-invalid" id="exampleInputEmail1" name="name" placeholder="Nombre">
+              <input type="text" class="form-control is-invalid" id="exampleInputEmail1" name="name" placeholder="Nombre" required>
               <% else %>
-                <input type="text" class="form-control" id="exampleInputEmail1" name="name" placeholder="Nombre">
+                <input type="text" class="form-control" id="exampleInputEmail1" name="name" placeholder="Nombre" required>
                 <% end %>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Contraseña</label>
             <% if flash.has?(:error) %>
-              <input type="password" class="form-control is-invalid" id="exampleInputPassword1" name="password" placeholder="Contraseña">
+              <input type="password" class="form-control is-invalid" id="exampleInputPassword1" name="password" placeholder="Contraseña" required>
               <div class="invalid-feedback">
                 Usuario o contraseña inválidos.
               </div>
               <% else %>
-                <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Contraseña">
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Contraseña" required>
+                <div class="invalid-feedback">Debe especificar un nombre y una contraseña.</div>
                 <% end %>
           </div>
           <div class="row">
@@ -80,7 +81,23 @@
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
         crossorigin="anonymous"></script>
 
-      <!--<% if flash.has?(:error) %> <h3 class="error"><%= flash[:error] %></h3> <% end %> -->
+      <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+          'use strict';
+
+          window.addEventListener('load', function () {
+            var form = document.getElementById('contenido');
+            form.addEventListener('submit', function (event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          }, false);
+        })();
+      </script>
 
 </body>
 
