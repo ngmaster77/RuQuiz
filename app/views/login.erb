@@ -2,81 +2,86 @@
 
 <html>
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/personal.css">
-    <title>RuQuiz - Iniciar Sesión</title>
-  </head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="css/personal.css">
+  <title>RuQuiz - Iniciar Sesión</title>
+</head>
 
-  <body>
-    <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand" href="/">
-        <img src="images/ruby.png" width="30" height="30" class="d-inline-block align-top" alt="">
-        RuQuiz
-      </a>
-    </nav>
+<body>
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="/">
+      <img src="images/ruby.png" width="30" height="30" class="d-inline-block align-top" alt=""> RuQuiz</a>
+  </nav>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 offset-md-3 col-10 offset-1" id="box">
-          <form action="/login" method="post" id="contenido">
-            <h3>Iniciar sesión</h3>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Nombre</label>
-              <% if flash.has?(:error) %>
-                <input type="text" class="form-control is-invalid" id="exampleInputEmail1" name="name" placeholder="Nombre">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3 col-10 offset-1" id="box">
+        <form action="/login" method="post" id="contenido">
+          <h3>Iniciar sesión</h3>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Nombre</label>
+            <% if flash.has?(:error) %>
+              <input type="text" class="form-control is-invalid" id="exampleInputEmail1" name="name" placeholder="Nombre">
               <% else %>
                 <input type="text" class="form-control" id="exampleInputEmail1" name="name" placeholder="Nombre">
-              <% end %>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Contraseña</label>
-              <% if flash.has?(:error) %>
-                <input type="password" class="form-control is-invalid" id="exampleInputPassword1" name="password" placeholder="Contraseña">
-                <div class="invalid-feedback">
-                  Usuario o contraseña inválidos.
-                </div>
+                <% end %>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Contraseña</label>
+            <% if flash.has?(:error) %>
+              <input type="password" class="form-control is-invalid" id="exampleInputPassword1" name="password" placeholder="Contraseña">
+              <div class="invalid-feedback">
+                Usuario o contraseña inválidos.
+              </div>
               <% else %>
                 <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Contraseña">
-              <% end %>
-            </div>
-            <div class="row">
-              <div class="col-12">
-                <div class="text-center">
-                  <button type="submit" class="btn btn-primary" value="Log in">Iniciar sesión</button>
-                </div>
-              </div>
-            </div>
-            <br>
-          </form>
-          <p id="contenido">¿No tienes cuenta aún?<a href="/registro">
-              Regístrate</a>
-          </p>
-          <hr>
+                <% end %>
+          </div>
           <div class="row">
             <div class="col-12">
               <div class="text-center">
-                <p id="titulo">o inicia sesión con uno de estos servicios:</p>
-              <div>
+                <button type="submit" class="btn btn-primary" value="Log in">Iniciar sesión</button>
+              </div>
             </div>
-            <div class="col-lg-4 offset-lg-4 col-12">
-              <a href="/auth/github" class="btn btn-outline-dark" id="registro_github"><i class="fa fa-github fa-lg fa-fw" aria-hidden="true"></i>Github</a>
+          </div>
+          <br>
+        </form>
+        <p id="contenido">¿No tienes cuenta aún?
+          <a href="/registro">
+            Regístrate</a>
+        </p>
+        <hr>
+        <div class="row">
+          <div class="col-12">
+            <div class="text-center">
+              <p id="titulo">o inicia sesión con uno de estos servicios:</p>
+              <div>
+              </div>
+              <div class="col-lg-4 offset-lg-4 col-12">
+                <a href="/auth/github" class="btn btn-outline-dark" id="registro_github">
+                  <i class="fa fa-github fa-lg fa-fw" aria-hidden="true"></i>Github</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!--Scripts-->
+      <!--Scripts-->
 
-    <script src="https://use.fontawesome.com/84656ba81e.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+      <script src="https://use.fontawesome.com/84656ba81e.js"></script>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
 
-    <!--<% if flash.has?(:error) %> <h3 class="error"><%= flash[:error] %></h3> <% end %> -->
+      <!--<% if flash.has?(:error) %> <h3 class="error"><%= flash[:error] %></h3> <% end %> -->
 
-  </body>
+</body>
+
 </html>

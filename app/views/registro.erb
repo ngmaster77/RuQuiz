@@ -21,45 +21,60 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 offset-md-3 col-10 offset-1" id="box">
-        <form action="/registro" method="post" id="contenido">
-          <h3>Regístrate ahora</h3>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Nombre</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" name="name" placeholder="Nombre">
+        <% if flash.has?(:error) %>
+          <div class="alert alert-danger" role="alert">
+            <%= flash[:error] %>
           </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Correo electrónico</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Correo electrónico">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Contraseña</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Contraseña">
-          </div>
-          <fieldset class="form-group">
-            <div class="row">
-              <legend class="col-form-legend col-sm-4">¿Es usted profesor?</legend>
-              <div class="col-sm-8">
-                <div class="form-check form-check-inline">
-                  <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="instructor" id="exampleRadios1" value="yes" checked="checked"> Si
-                  </label>
+          <% end %>
+            <form action="/registro" method="post" id="contenido" novalidate>
+              <h3>Regístrate ahora</h3>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Nombre</label>
+                <% if flash.has?(:errorInvalidName) %>
+                  <input type="text" class="form-control is-invalid" id="exampleInputEmail1" name="name" placeholder="Nombre" required>
+                  <div class="invalid-feedback">
+                    <%= flash[:errorInvalidName] %>
+                  </div>
+                  <% else %>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="name" placeholder="Nombre" required>
+                    <div class="invalid-feedback">Debe indicar un nombre de usuario.</div>
+                    <% end %>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Correo electrónico</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Correo electrónico" required>
+                <div class="invalid-feedback">Debe indicar un correo electrónico válido.</div>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Contraseña</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Contraseña" required>
+                <div class="invalid-feedback">Debe indicar una contraseña.</div>
+              </div>
+              <fieldset class="form-group">
+                <div class="row">
+                  <legend class="col-form-legend col-sm-4">¿Es usted profesor?</legend>
+                  <div class="col-sm-8">
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="radio" name="instructor" id="exampleRadios1" value="yes" checked="checked"> Si
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="radio" name="instructor" id="exampleRadios2" value="no"> No
+                      </label>
+                    </div>
+                  </div>
                 </div>
-                <div class="form-check form-check-inline">
-                  <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="instructor" id="exampleRadios2" value="no"> No
-                  </label>
+              </fieldset>
+              <div class="row">
+                <div class="col-12">
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary" value="Registro">Registrarme</button>
+                  </div>
                 </div>
               </div>
-            </div>
-          </fieldset>
-          <div class="row">
-            <div class="col-12">
-              <div class="text-center">
-                <button type="submit" class="btn btn-primary" value="Registro">Registrarme</button>
-              </div>
-            </div>
-          </div>
-        </form>
+            </form>
       </div>
     </div>
   </div>
@@ -74,12 +89,24 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
     crossorigin="anonymous"></script>
 
-</body>
+  <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+      'use strict';
 
-<% if flash.has?(:error) %>
-  <h3 class="error">
-    <%= flash[:error] %>
-  </h3>
-  <% end %>
+      window.addEventListener('load', function () {
+        var form = document.getElementById('contenido');
+        form.addEventListener('submit', function (event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      }, false);
+    })();
+  </script>
+
+</body>
 
 </html>
