@@ -83,7 +83,11 @@ class ApplicationController < Sinatra::Base
   get '/search' do
     @user = User.find(session[:id])
     if params
-      @searches = Cuestionario.where(cuestionarios: {titulo: params["quiz"]})
+      if params["quiz"]
+        @searches = Cuestionario.where(cuestionarios: {titulo: params["quiz"]})
+      elsif params["show"]
+        @searches = Cuestionario.all
+      end
     end
     erb :search
   end
