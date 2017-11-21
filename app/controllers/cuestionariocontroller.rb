@@ -34,14 +34,9 @@ class CuestionarioController < ApplicationController
       $identificador = @cuestionario.id
       @questionario.write($identificador)
 
-      redirect to '/home_profesor', flash[:notice] = 'Cuestionario creado con éxito!'
+      redirect to '/home', flash[:notice] = 'Cuestionario creado con éxito!'
     else
       redirect to '/newcuestionario', flash[:error] = 'Error al crear el cuestionario'
     end
-  end
-
-  get '/showcuestionarios' do
-    @cuestionarios = Cuestionario.all
-    erb :showcuestionarios
   end
 end

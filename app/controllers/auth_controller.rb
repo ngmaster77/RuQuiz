@@ -22,14 +22,14 @@ class ExternalAuthController < ApplicationController
     auth = env['omniauth.auth']
     @user = User.find_by(name: auth.info.nickname)
     if @user
-      redirect to '/home_alumno'
+      redirect to '/home'
     else
       @user = User.new(name: auth.info.nickname, email: auth.info.email || auth.info.nickname, password: auth.uid)
       @user.instructor = false
     end
     if @user.save
       session[:id] = @user.id
-      redirect '/home_alumno'
+      redirect '/home'
     else
       flash[:error] = 'Error al crear el usuario mediante OAuth'
       redirect to '/registro'

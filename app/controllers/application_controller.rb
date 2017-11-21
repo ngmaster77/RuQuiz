@@ -33,11 +33,7 @@ class ApplicationController < Sinatra::Base
     end
     if @user.save
         session[:id] = @user.id
-        if @user.instructor
-          redirect '/home_profesor'
-        else
-          redirect '/home_alumno'
-        end
+        redirect '/home'
     else
         flash[:error] = "No se ha creado el usuario correctamente."
         redirect to '/registro'
@@ -52,12 +48,7 @@ class ApplicationController < Sinatra::Base
     @user = User.find_by(name: params["name"])
     if @user && @user.authenticate(params[:password])
         session[:id] = @user.id
-        puts @user.id
-        if @user.instructor
-          redirect '/home_profesor'
-        else
-          redirect '/home_alumno'
-        end
+        redirect '/home'
     else
         flash[:error] = "No se ha encontrado el usuario"
         redirect '/login'
@@ -69,15 +60,10 @@ class ApplicationController < Sinatra::Base
     redirect '/login'
   end
 
-  get '/home_alumno' do
+  get '/home' do
     @user = User.find(session[:id])
     @resultados = Resultado.joins(:user,:cuestionario).where(resultados: {user_id: @user.id}).select("titulo,nota,notamaxima,creador,descripcion,cuestionario_id")
-    erb :home_alumno
-  end
-
-  get '/home_profesor' do
-    @user = User.find(session[:id])
-    erb :home_profesor
+    erb :home
   end
 
   get '/search' do
