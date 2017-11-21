@@ -54,5 +54,9 @@ h1 {
   border-radius: 5px;
   background: rgba(255, 255, 255, 0.2); /* Green background with 30% opacity */
   color: white;
-  margin-top: 150px;
+  margin-top: 40px;
+}
+
+#icono {
+  padding-left: 10px;
 }
