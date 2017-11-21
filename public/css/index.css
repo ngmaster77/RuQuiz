@@ -50,18 +50,15 @@ h1 {
   background-color: white;
 }
 
-#features {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  margin: auto;
-  width: 95%;
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0.2); /* Green background with 30% opacity */
-  color: white;
-  margin-top: 40px;
-}
-
 #icono {
   padding-bottom: 10px;
   color: #dc3545;
+}
+
+li {
+  list-style-type: none;
+}
+
+#github {
+  color: black;
 }
