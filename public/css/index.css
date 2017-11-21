@@ -1,0 +1,64 @@
+#container1 {
+  height: 900px;
+  background-image: url('../images/Firewatch.jpg');
+  box-shadow: 0px 1px 10px;
+}
+
+#container2 {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: white;
+  width: 100%;
+}
+
+#bloque {
+  width: 95%;
+  margin: auto;
+}
+
+#barra_index {
+  background-color: white;
+  height: 60px;
+  margin-top: 50px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2); /* Green background with 30% opacity */
+}
+
+
+h5 {
+  padding-top: 17px;
+  color: white;
+  display: inline-block;
+}
+
+#boton_registro {
+  margin-top: 10px;
+}
+
+h1 {
+  color: white;
+  margin-top: 170px;
+  font-size: 100px;
+}
+
+#slogan {
+  font-size: 40px;
+  color: white;
+}
+
+#descripcion {
+  background-color: white;
+}
+
+#icono {
+  padding-bottom: 10px;
+  color: #dc3545;
+}
+
+li {
+  list-style-type: none;
+}
+
+#github {
+  color: black;
+}
