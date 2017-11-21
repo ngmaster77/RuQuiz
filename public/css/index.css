@@ -2,12 +2,12 @@ body {
   background-image: url('../images/Firewatch.jpg');
 }
 
-#bloque_1 {
+#bloque {
   width: 95%;
   margin: auto;
 }
 
-#nav {
+#tabs {
   display: inline-block;
   padding-left: 50px;
   color: white;
@@ -44,4 +44,15 @@ h1 {
 
 #descripcion {
   background-color: white;
+}
+
+#features {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: auto;
+  width: 95%;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2); /* Green background with 30% opacity */
+  color: white;
+  margin-top: 150px;
 }

@@ -15,7 +15,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    erb :index
+    erb :index2
+  end
+
+  get '/features' do
+    erb :features
   end
 
   get '/registro' do
