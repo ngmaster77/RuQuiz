@@ -57,7 +57,7 @@
                 <div class="card text-center">
                   <div class="card-header">
                     <em>
-                      <%=resultado.creador%>
+                      @<%=resultado.creador%><br><small><%=resultado.fechacre%></small>
                     </em>
                   </div>
                   <div class="card-body">
@@ -71,9 +71,9 @@
                   </div>
                   <div class="card-footer text-muted">
                     <% if resultado.nota >= resultado.notamaxima / 2 %>
-                    <span class="badge badge-success">Aprobado</span><br>
+                    <span class="badge badge-success">Aprobado</span><br><small><%=resultado.fechares%></small><br>
                     <% else %>
-                    <span class="badge badge-danger">Suspendido</span><br>
+                    <span class="badge badge-danger">Suspendido</span><br><small><%=resultado.fechares%></small><br>
                     <% end %>
                     <%=resultado.nota%>
                       /

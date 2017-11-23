@@ -1,2 +1,0 @@
-quiz 'aaa' do
-end
