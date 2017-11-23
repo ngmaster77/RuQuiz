@@ -62,8 +62,7 @@ class ApplicationController < Sinatra::Base
 
   get '/home' do
     @user = User.find(session[:id])
-    @resultados = Resultado.joins(:user,:cuestionario).where(resultados: {user_id: @user.id}).select("titulo,nota,notamaxima,creador,descripcion,cuestionario_id").group("cuestionario_id").having("max(nota)")
-    @resultadosall = Resultado.joins(:user,:cuestionario).where(resultados: {user_id: @user.id}).select("titulo,nota,notamaxima,creador,descripcion,cuestionario_id")
+    @resultados = Resultado.joins(:user,:cuestionario).where(resultados: {user_id: @user.id}).select("titulo,nota,notamaxima,creador,descripcion,cuestionario_id").group("cuestionario_id").having("max(nota is not null)")
     erb :home
   end
 

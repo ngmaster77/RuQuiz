@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Titulo</title>
+    <title>Prueba</title>
     <!-- Bootstrap CSS -->
     
       <style type="text/css">
@@ -78,11 +78,7 @@
       }
       
       /* Inputs size */
-      input.size-4 { width: 2.8em; }
-
-input.size-10 { width: 7.0em; }
-div.size-3 { width: 2.1em; display: inline; }
-
+      
     </style>
     <!-- jQuery ContextMenu CSS -->
     
@@ -1577,68 +1573,33 @@ CodeMirror.defineMIME("application/typescript", { name: "javascript", typescript
       
         <div class="navbar navbar-default custom-header">
           <div class="navbar-header">
-            <h3>Titulo</h3>
+            <h3>Prueba</h3>
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
               <li>
-                <a href="/home" class="links">
+                <a href="/home_alumno" class="links">
                   Salir </a>
               </li>
             </ul>
           </div>
         </div>
       
-      <!-- Seed: 163979211389306601242595361039132839953 -->
+      <!-- Seed: 239803324955090381854575982549655065781 -->
 <form id="form">
   <ol class="questions">
-    <li id="question-0" class="question fillin ">
+    <li id="question-0" class="question truefalse ">
       <div class="quiz text">
-[1 point] La capital de USA es <input type="text" id="qfi1-1" name="qfi1-1" class="fillin size-10"></input> y está en el <input type="text" id="qfi1-2" name="qfi1-2" class="fillin size-4"></input><div id="qfi1-2r" class="quiz"></div></br></br>      </div>
-      <br>
-      </br>
-    </li>
-    <li id="question-1" class="question dragdrop_fi ">
-      <div class="quiz text">
-[1 point] The <input id="qddfi2-1" name="qddfi2-1" class="dragdropfi size-4" ondrop="drop(event,'qddfi2-1', 
-true)" 
-                          ondragover="allowDrop(event)"></input> brown fox jumped over the lazy <input id="qddfi2-2" name="qddfi2-2" class="dragdropfi size-4" ondrop="drop(event,'qddfi2-2', 
-true)" 
-                          ondragover="allowDrop(event)"></input><br/><br/><div> Respuestas: <a class="dragdropfi size-3 btn btn-default btn-sm" id="qddfia1-1" draggable="true" 
-        ondragstart="drag(event)">fox</a>&nbsp&nbsp<a class="dragdropfi size-3 btn btn-default btn-sm" id="qddfia2-2" draggable="true" 
-        ondragstart="drag(event)">dog</a>&nbsp&nbsp<div/></br></br>      </div>
-      <br>
-      </br>
-    </li>
-    <li id="question-2" class="question dragdrop_mc ">
-      <div class="quiz text">
-[1 point] Relacioname esta<br></br>      </div>
+[1 point] True or False: EnunciadoVerdadero1<br></br>      </div>
       <ol class="answers">
-        <div>
-          <div id="col1-q3-qddmc" class="col1">
-            <a class="btn btn-default btn-sm disabled button-q3-qddmc" draggable="false">
-Facebook            </a>
-            <br/>
-            <a class="btn btn-default btn-sm disabled button-q3-qddmc" draggable="false">
-twitter            </a>
-            <br/>
-          </div>
-          <div id="col2-q3-qddmc" class="col2">
-            <input id="qddmc3-1" name="qddmc3-1" type="text" class="dragdropmc input-qddmc" ondrop="drop(event, 'qddmc3-1', true)" ondragover="allowDrop(event)"/>
-            <br/>
-            <input id="qddmc3-2" name="qddmc3-2" type="text" class="dragdropmc input-qddmc" ondrop="drop(event, 'qddmc3-2', true)" ondragover="allowDrop(event)"/>
-            <br/>
-          </div>
-          <div id="col3-q2-qddmc" class="col3">
-            <a id="qddmca3-1" name="qddmca3-1" class="btn btn-default btn-sm button-qddmc" draggable="true" ondragstart="drag(event)">
-hola2            </a>
-            <br/>
-            <a id="qddmca3-2" name="qddmca3-2" class="btn btn-default btn-sm button-qddmc" draggable="true" ondragstart="drag(event)">
-Hola1            </a>
-            <br/>
-          </div>
+        <input type="radio" id="qmc1-1" name="qmc1" class="select">
+True<br class="qmc1-1br">        </input>
+        <div id="qmc1-1r" class="quiz">
         </div>
-        <div class="clear-qdd"/>
+        <input type="radio" id="qmc1-2" name="qmc1" class="select">
+False<br class="qmc1-2br">        </input>
+        <div id="qmc1-2r" class="quiz">
+        </div>
         <br/>
       </ol>
     </li>
@@ -1742,11 +1703,11 @@ var XRegExp;XRegExp=XRegExp||function(n){"use strict";function v(n,i,r){var u;fo
     
       <script type="text/javascript">
         
-      data = {"question-0":{"question_text":"La capital de USA es ---------- y está en el ----","answers":{"qfi1-1":{"answer_text":"/washington/","correct":true,"explanation":null,"type":"Regexp"},"qfi1-2":{"answer_text":"/este/","correct":true,"explanation":null,"type":"Regexp"}},"points":1,"order":true,"question_comment":""},"question-1":{"question_text":"The ---- brown fox jumped over the lazy ----","answers":{"qddfi2-1":{"answer_text":"fox","correct":true,"explanation":null,"type":"String"},"qddfi2-2":{"answer_text":"dog","correct":true,"explanation":null,"type":"String"}},"points":1,"order":true,"question_comment":""},"question-2":{"question_text":"Relacioname esta","answers":{"qddmc3-1":{"answer_text":{"Facebook":"Hola1"},"correct":true,"explanation":null,"type":"Hash"},"qddmc3-2":{"answer_text":{"twitter":"hola2"},"correct":true,"explanation":null,"type":"Hash"}},"points":1,"question_comment":""}};
-      timestamp = 1511438446
+      data = {"question-0":{"question_text":"True or False: EnunciadoVerdadero1","answers":{"qmc1-1":{"answer_text":"True","correct":true,"explanation":null},"qmc1-2":{"answer_text":"False","correct":false,"explanation":""}},"points":1,"question_comment":""}};
+      timestamp = 1511435525
       timestamp = timestamp.toString();
       language = 'es';
-      totalPoints = 3;
+      totalPoints = 1;
       userPoints = 0;
       
       function findCorrectAnswer(idQuestion, questionType) {
