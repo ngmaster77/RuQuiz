@@ -22,6 +22,8 @@ class StatsController < ApplicationController
     @resultado = Resultado.new(user_id:session[:id],cuestionario_id: $identificador, name:@user.name, nota:resultado)
     if @resultado.save
       puts "Resultado guardado con exito"
+    else
+      puts "Error al guardar resultado"
     end
   end
 end

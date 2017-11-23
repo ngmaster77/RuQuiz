@@ -63,6 +63,7 @@ class ApplicationController < Sinatra::Base
   get '/home' do
     @user = User.find(session[:id])
     @resultados = Resultado.joins(:user,:cuestionario).where(resultados: {user_id: @user.id}).select("titulo,nota,notamaxima,creador,descripcion,cuestionario_id").group("cuestionario_id").having("max(nota)")
+    @resultadosall = Resultado.joins(:user,:cuestionario).where(resultados: {user_id: @user.id}).select("titulo,nota,notamaxima,creador,descripcion,cuestionario_id")
     erb :home
   end
 
@@ -70,7 +71,8 @@ class ApplicationController < Sinatra::Base
     @user = User.find(session[:id])
     if params
       if params["quiz"]
-        @searches = Cuestionario.where(cuestionarios: {titulo: params["quiz"]})
+        aux = "%#{params["quiz"]}%"
+        @searches = Cuestionario.where("titulo LIKE ?", aux)
       elsif params["show"]
         @searches = Cuestionario.all
       end

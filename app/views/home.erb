@@ -70,6 +70,11 @@
                     <a href="/cuestionario/<%=resultado.cuestionario_id%>" class="btn btn-outline-primary">Resolver</a>
                   </div>
                   <div class="card-footer text-muted">
+                    <% if resultado.nota >= resultado.notamaxima / 2 %>
+                    <span class="badge badge-success">Aprobado</span><br>
+                    <% else %>
+                    <span class="badge badge-danger">Suspendido</span><br>
+                    <% end %>
                     <%=resultado.nota%>
                       /
                       <%=resultado.notamaxima%>
