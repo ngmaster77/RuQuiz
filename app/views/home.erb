@@ -37,8 +37,7 @@
         </li>
       </ul>
       <span class="navbar-text" id="bienvenido">
-        ¡Hola @
-        <%=@user.name%>!
+        ¡Hola @<%=@user.name%>!
       </span>
       <% if @user.instructor %>
         <a href="/newcuestionario" class="btn btn-primary my-2 my-sm-0" role="button">Crear Cuestionario</a>
@@ -48,79 +47,89 @@
   </nav>
 
   <% if !@user.instructor %>
-
-    <div class="row">
-      <div class="col-md-10 offset-md-1">
-        <br>
-        <div class="row">
-          <%@resultados.each do |resultado|%>
-            <div class="col-md-4">
-              <div class="card text-center">
-                <div class="card-header">
-                  <em>
-                    <%=resultado.creador%>
-                  </em>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <%=resultado.titulo%>
-                  </h4>
-                  <p class="card-text">
-                    <%=resultado.descripcion%>
-                  </p>
-                  <a href="/cuestionario/<%=resultado.cuestionario_id%>" class="btn btn-outline-primary">Resolver</a>
-                </div>
-                <div class="card-footer text-muted">
-                  <%=resultado.nota%>
-                    /
-                    <%=resultado.notamaxima%>
-                </div>
-              </div>
-            </div>
-            <%end%>
-        </div>
-      </div>
-    </div>
-
-    <% elsif @user.instructor %>
-
+    <% if @resultados.length != 0 %>
       <div class="row">
-        <div class="col-md-10 offset md-1">
-          <% if flash.has?(:notice) %>
-            <div id="alertQuizzStatusOk">
-              <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <%= flash[:notice]%>
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-              </div>
-            </div>
-            <% end %>
-              <% if flash.has?(:error) %>
-                <div id="alertQuizzStatusFail">
-                  <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <%= flash[:error]%>
-                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
+        <div class="col-md-10 offset-md-1">
+          <div class="row">
+            <%@resultados.each do |resultado|%>
+              <div class="col-md-4">
+              <br>
+                <div class="card text-center">
+                  <div class="card-header">
+                    <em>
+                      <%=resultado.creador%>
+                    </em>
+                  </div>
+                  <div class="card-body">
+                    <h4 class="card-title">
+                      <%=resultado.titulo%>
+                    </h4>
+                    <p class="card-text">
+                      <%=resultado.descripcion%>
+                    </p>
+                    <a href="/cuestionario/<%=resultado.cuestionario_id%>" class="btn btn-outline-primary">Resolver</a>
+                  </div>
+                  <div class="card-footer text-muted">
+                    <%=resultado.nota%>
+                      /
+                      <%=resultado.notamaxima%>
                   </div>
                 </div>
-                <% end %>
+              </div>
+            <%end%>
+          </div>
         </div>
       </div>
+        <% else %>
+        <br>
+          <div class="row">
+            <div class="col-md-8 offset-md-2">
+              <div class="alert alert-danger text-center" role="alert">
+                No has resuelto todavía ningún cuestionario. Encuentra cuestionarios en la sección <a href="/search" class="alert-link">"Buscar"</a>.
+              </div>
+            </div>
+          </div>
+          <% end %>
 
-      <% end %>
+            <% elsif @user.instructor %>
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
-    crossorigin="anonymous"></script>
+              <div class="row">
+                <div class="col-md-10 offset md-1">
+                  <% if flash.has?(:notice) %>
+                    <div id="alertQuizzStatusOk">
+                      <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <%= flash[:notice]%>
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                      </div>
+                    </div>
+                    <% end %>
+                      <% if flash.has?(:error) %>
+                        <div id="alertQuizzStatusFail">
+                          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <%= flash[:error]%>
+                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                          </div>
+                        </div>
+                        <% end %>
+                </div>
+              </div>
 
-  <script type="text/javascript">
-    $(".alert").alert()
-  </script>
+              <% end %>
+
+                <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                  crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+                  crossorigin="anonymous"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+                  crossorigin="anonymous"></script>
+
+                <script type="text/javascript">
+                  $(".alert").alert()
+                </script>
 
 </body>
 
