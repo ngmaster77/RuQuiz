@@ -29,7 +29,7 @@ class CuestionarioController < ApplicationController
       iterator += 1
     end
     @questionario = Questionario.new(@data[0], array)
-    @cuestionario = Cuestionario.new(titulo: @data[0], descripcion: @data[1], creador: @user.name, npreguntas: array.length, notaaprobar: (array.length / 2), notamaxima: array.length)
+    @cuestionario = Cuestionario.new(titulo: @data[0], descripcion: @data[1], creador: @user.name, npreguntas: array.length, notaaprobar: (array.length / 2), notamaxima: array.length, fechacre: Time.new)
     if @cuestionario.save
       $identificador = @cuestionario.id
       @questionario.write($identificador)

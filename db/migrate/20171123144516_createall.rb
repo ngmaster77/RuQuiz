@@ -1,4 +1,4 @@
-class Createtodo < ActiveRecord::Migration[5.1]
+class Createall < ActiveRecord::Migration[5.1]
   def change
     drop_table :cuestionarios
     create_table :cuestionarios  do |t|
@@ -8,6 +8,7 @@ class Createtodo < ActiveRecord::Migration[5.1]
       t.integer :npreguntas
       t.float :notaaprobar
       t.float :notamaxima
+      t.string :fechacre
     end
     drop_table :users
     create_table :users do |t|
@@ -24,6 +25,7 @@ class Createtodo < ActiveRecord::Migration[5.1]
       t.belongs_to :cuestionario, index: true
       t.string :name
       t.float :nota
+      t.string :fechares
     end
   end
 end

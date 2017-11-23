@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171116134352) do
+ActiveRecord::Schema.define(version: 20171123144516) do
 
   create_table "cuestionarios", force: :cascade do |t|
     t.string "titulo"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20171116134352) do
     t.integer "npreguntas"
     t.float "notaaprobar"
     t.float "notamaxima"
+    t.string "fechacre"
   end
 
   create_table "resultados", force: :cascade do |t|
@@ -26,6 +27,7 @@ ActiveRecord::Schema.define(version: 20171116134352) do
     t.integer "cuestionario_id"
     t.string "name"
     t.float "nota"
+    t.string "fechares"
     t.index ["cuestionario_id"], name: "index_resultados_on_cuestionario_id"
     t.index ["user_id"], name: "index_resultados_on_user_id"
   end
