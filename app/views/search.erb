@@ -25,7 +25,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="/home_alumno">Mis cuestionarios</a>
+          <a class="nav-link" href="/home">Mis cuestionarios</a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="/search">Buscar
@@ -78,7 +78,7 @@
                 <p class="card-text">
                   <%=search.descripcion%>
                 </p>
-                <a href="/cuestionario/#" class="btn btn-outline-primary">Resolver</a>
+                <a href="/cuestionario/<%=search.id%>" class="btn btn-outline-primary">Resolver</a>
               </div>
               <div class="card-footer text-muted">/</div>
             </div>
@@ -87,6 +87,8 @@
       </div>
       <br>
       <%end%>
+      <a class="btn btn-secondary btn-block bt-sm" href="/search?show=all" role="button">Mostrar todos los cuestionarios</a>
+      <br>
       <div class="alert alert-danger text-center" role="alert">
         Se han encontrado <strong><%if @searches %> <%=@searches.length%> <% else %> 0 <%end%> resultados</strong> que coinciden con su búsqueda.
       </div>
