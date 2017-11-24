@@ -33,7 +33,7 @@ describe '# Prueba inicio de sesión/registro', type: :feature do
     fill_in 'password', with: '12345'
     click_button 'Log in'
     expect(200).to eq(page.status_code)
-    expect(current_path).to eql('/home_profesor')
+    expect(current_path).to eql('/home')
   end
 
   it 'Registro de usuario' do
@@ -41,10 +41,10 @@ describe '# Prueba inicio de sesión/registro', type: :feature do
     fill_in 'name', with: 'testuser'
     fill_in 'email', with: 'testuser@test.com'
     fill_in 'password', with: '12345'
-    choose('exampleRadios2') # no es profesor
+    choose('exampleRadios2')
     click_button 'Registro'
     expect(200).to eq(page.status_code)
-    expect(current_path).to eql('/home_alumno')
+    expect(current_path).to eql('/home')
     User.find_by(name: 'testuser').delete
   end
 
@@ -57,3 +57,11 @@ describe '# Prueba inicio de sesión/registro', type: :feature do
     expect(current_path).to eql('/login')
   end
 end
+=begin
+describe '# Prueba operaciones básicas en la base de datos' do
+  it 'Se crea usuario de tipo alumno' do
+    @user = User.new(name: params["name"], email: params["email"], password: params["password"])
+    @user.instructor = params[:instructor] == 'yes' ? true : false
+  end
+end
+=begin
