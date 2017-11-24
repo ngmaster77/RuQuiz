@@ -57,3 +57,11 @@ describe '# Prueba inicio de sesión/registro', type: :feature do
     expect(current_path).to eql('/login')
   end
 end
+=begin
+describe '# Prueba operaciones básicas en la base de datos' do
+  it 'Se crea usuario de tipo alumno' do
+    @user = User.new(name: params["name"], email: params["email"], password: params["password"])
+    @user.instructor = params[:instructor] == 'yes' ? true : false
+  end
+end
+=begin
