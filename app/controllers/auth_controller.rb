@@ -22,6 +22,7 @@ class ExternalAuthController < ApplicationController
     auth = env['omniauth.auth']
     @user = User.find_by(name: auth.info.nickname)
     if @user
+      session[:id] = @user.id
       redirect to '/home'
     else
       @user = User.new(name: auth.info.nickname, email: auth.info.email || auth.info.nickname, password: auth.uid)
