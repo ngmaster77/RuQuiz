@@ -1,6 +1,9 @@
 require 'bundler/setup'
 require 'rack-flash'
 require 'ruql'
+require 'sinatra/contrib'
+require 'chartkick'
+
 Bundler.require
 
 ENV['SINATRA_ENV'] ||= "development"

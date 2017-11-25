@@ -1,5 +1,6 @@
 class ApplicationController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
+  register Sinatra::Contrib
   set :views, Proc.new { File.join(root, "../views") }
   set :public_folder, 'public'
   use Rack::Flash
@@ -92,7 +93,7 @@ class ApplicationController < Sinatra::Base
 
   get '/stats' do
     @user = User.find(session[:id])
-    @resultados = Resultado.joins(:user,:cuestionario).where(resultados: {user_id: @user.id}).select("titulo,nota,notamaxima")
+    @data = {'2015-07-20 00:00:00 UTC' => 2, '2015-07-21 00:00:00 UTC' => 4, '2015-07-22 00:00:00 UTC' => 1, '2015-07-23 00:00:00 UTC' => 7}
     erb :stats
   end
 end
