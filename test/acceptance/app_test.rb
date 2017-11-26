@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
-require_relative 'spec_helper'
-require_relative '../config/environment'
-require 'rspec'
-require 'rspec/expectations'
+require_relative '../spec_helper'
+require_relative '../../config/environment'
 require 'capybara'
 require 'capybara/rspec'
 require 'capybara/dsl'
+require 'coveralls'
+
 
 Capybara.app = ApplicationController
 
