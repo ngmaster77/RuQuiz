@@ -1,8 +1,6 @@
 #!/usr/bin/env ruby
 require_relative 'spec_helper'
 require_relative '../config/environment'
-require 'rspec'
-require 'rspec/expectations'
 require 'capybara'
 require 'capybara/rspec'
 require 'capybara/dsl'
@@ -56,4 +54,8 @@ describe '# Prueba inicio de sesión/registro', type: :feature do
     click_link('logout')
     expect(current_path).to eql('/login')
   end
+end
+
+describe '# Prueba operaciones básicas en la base de datos' do
+  
 end

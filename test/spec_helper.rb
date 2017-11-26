@@ -1,3 +1,6 @@
+require 'rspec'
+require 'rspec/expectations'
+
 ENV['RACK_ENV'] = 'test'
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
