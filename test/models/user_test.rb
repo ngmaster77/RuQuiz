@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-Coveralls.wear!
 require_relative '../spec_helper'
 require_relative '../../config/environment'
 require 'minitest/spec'
