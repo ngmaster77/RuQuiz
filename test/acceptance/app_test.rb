@@ -4,6 +4,8 @@ require_relative '../../config/environment'
 require 'capybara'
 require 'capybara/rspec'
 require 'capybara/dsl'
+require 'coveralls'
+Coveralls.wear!
 
 Capybara.app = ApplicationController
 

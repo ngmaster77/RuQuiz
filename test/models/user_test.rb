@@ -3,6 +3,8 @@ require_relative '../spec_helper'
 require_relative '../../config/environment'
 require 'minitest/spec'
 require 'minitest/autorun'
+require 'coveralls'
+Coveralls.wear!
 
 class UserTest < ActiveSupport::TestCase
   def setup
