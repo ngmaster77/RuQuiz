@@ -55,7 +55,3 @@ describe '# Prueba inicio de sesión/registro', type: :feature do
     expect(current_path).to eql('/login')
   end
 end
-
-describe '# Prueba operaciones básicas en la base de datos' do
-  
-end
