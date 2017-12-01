@@ -49,26 +49,62 @@
     </nav>
     <br>
     <%if @cuestionarios.length != 0 %>
-    <div class="container d-none d-md-block">
-      <div class="row">
-        <div class="col-3">
-          <div class="list-group" id="list-tab" role="tablist">
-            <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">General</a>
-            <% @cuestionarios.each do |cuestionario| %>
-              <a class="list-group-item list-group-item-action" id="list-<%= cuestionario.cuestionario_id %>-list" data-toggle="list" href="#list-<%= cuestionario.cuestionario_id %>"><%= cuestionario.titulo %></a>
-            <%end%>
+      <div class="container d-none d-md-block">
+        <div class="row">
+          <div class="col-3">
+            <div class="list-group" id="list-tab" role="tablist">
+              <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">General</a>
+              <% @cuestionarios.each do |cuestionario| %>
+                <a class="list-group-item list-group-item-action" id="list-<%= cuestionario.cuestionario_id %>-list" data-toggle="list" href="#list-<%= cuestionario.cuestionario_id %>"><%= cuestionario.titulo %></a>
+              <%end%>
+            </div>
           </div>
-        </div>
-        <div class="col-9">
-          <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">Hola</div>
-            <% @cuestionarios.each do |cuestionario| %>
-            <div class="tab-pane fade show" id="list-<%= cuestionario.cuestionario_id %>"><%= cuestionario.titulo %></div>
-            <%end%>
+          <div class="col-9">
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                <div class="row">
+                  <div class="col-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title text-center">Total cuestionarios realizados</h4>
+                        <div class="text-center">
+                          <span class="number"><%= @cuestionarios.length %></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title text-center">Cuestionarios aprobados</h4>
+                        <div class="text-center">
+                          <span class="number"><%= @aprobados %></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title text-center">Nota media</h4>
+                        <div class="text-center">
+                          <span class="number"><%= @show_media %>%</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row"></div>
+                <div class="row"></div>
+                <div class="row"></div>
+              </div>
+              <% @cuestionarios.each do |cuestionario| %>
+                <div class="tab-pane fade show" id="list-<%= cuestionario.cuestionario_id %>"><%= cuestionario.titulo %></div>
+              <%end%>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
     <%else%>
       <div class="container">

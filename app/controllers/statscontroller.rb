@@ -1,11 +1,11 @@
 class StatsController < ApplicationController
-  
-  
+
+
   get '/cuestionario/:id' do
     $identificador = params['id']
     output = `ls app/views/cuestionarios`
     @cuestionario = Cuestionario.find($identificador)
-  
+
 
     if output == "#{$identificador}.html"
       puts "Ya estaba creado..."
@@ -14,7 +14,7 @@ class StatsController < ApplicationController
     end
     send_file "./app/views/cuestionarios/#{$identificador}.html"
   end
-  
+
   post '/resultado' do
     @user = User.find(session[:id])
     var = params.keys[0]

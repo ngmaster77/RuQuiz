@@ -94,6 +94,14 @@ class ApplicationController < Sinatra::Base
   get '/stats' do
     @user = User.find(session[:id])
     @cuestionarios = Resultado.joins(:user,:cuestionario).where(resultados: {user_id: @user.id}).select("titulo,nota,notamaxima,creador,descripcion,cuestionario_id,fechacre,fechares,notaaprobar").group("cuestionario_id").having("max(nota is not null)")
+    @aprobados = Resultado.joins(:user,:cuestionario).where("nota >= notaaprobar", resultados: {user_id: @user.id}).count(:cuestionario_id)
+    @nota_media = Resultado.joins(:user,:cuestionario).where(resultados: {user_id: @user.id}).select("nota, notamaxima")
+    @show_media = Array.new
+    @nota_media.each do |nota|
+      aux = (nota.nota * 100) / nota.notamaxima
+      @show_media << aux
+    end
+    @show_media = @show_media.reduce(:+) / @show_media.size.to_f
     @data = {'prueba' => :user}
     erb :stats
   end
