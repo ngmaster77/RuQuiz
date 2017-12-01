@@ -48,32 +48,38 @@
       </div>
     </nav>
     <br>
-    <%if @cuestionarios.length != 0 %>
-    <div class="container d-none d-md-block">
-      <div class="row">
-        <div class="col-3">
-          <div class="list-group" id="list-tab" role="tablist">
-            <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">General</a>
-            <% @cuestionarios.each do |cuestionario| %>
-              <a class="list-group-item list-group-item-action" id="list-<%= cuestionario.cuestionario_id %>-list" data-toggle="list" href="#list-<%= cuestionario.cuestionario_id %>"><%= cuestionario.titulo %></a>
-            <%end%>
-          </div>
-        </div>
-        <div class="col-9">
-          <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">Hola</div>
-            <% @cuestionarios.each do |cuestionario| %>
-            <div class="tab-pane fade show" id="list-<%= cuestionario.cuestionario_id %>"><%= cuestionario.titulo %></div>
-            <%end%>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <%else%>
+    <%if @resultados.length != 0 %>
       <div class="container">
         <div class="row">
-          <div class="col-12">
+          <div class="col-md-12 text-center">
+            <div class="dropdown">
+              <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Cuestionarios realizados
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="#">Todos</li></a>
+                <%@resultados.each do |resultado|%>
+                  <li><a class="dropdown-item" href="#">
+                    <%=resultado.titulo%></a></li>
+                <%end%>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <%= line_chart(@data) %>
+            </div>
+          </div>
+        </div>
+
+      <%else%>
+        <br>
+        <div class="row">
+          <div class="col-md-8 offset-md-2">
             <div class="alert alert-danger text-center" role="alert">
               No has resuelto todavía ningún cuestionario. Encuentra cuestionarios en la sección
               <a href="/search" class="alert-link">"Buscar"</a>.
@@ -81,14 +87,13 @@
           </div>
         </div>
       </div>
-    </div>
-  <%end%>
+    <%end%>
 
-</body>
+  </body>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-<script src="js/stats.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  <script src="js/stats.js"></script>
 
 </html>

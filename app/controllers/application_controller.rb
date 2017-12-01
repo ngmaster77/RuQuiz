@@ -93,7 +93,8 @@ class ApplicationController < Sinatra::Base
 
   get '/stats' do
     @user = User.find(session[:id])
-    @data = {'2015-07-20 00:00:00 UTC' => 2, '2015-07-21 00:00:00 UTC' => 4, '2015-07-22 00:00:00 UTC' => 1, '2015-07-23 00:00:00 UTC' => 7}
+    @cuestionarios = Resultado.joins(:user,:cuestionario).where(resultados: {user_id: @user.id}).select("titulo,nota,notamaxima,creador,descripcion,cuestionario_id,fechacre,fechares,notaaprobar").group("cuestionario_id").having("max(nota is not null)")
+    @data = {'prueba' => :user}
     erb :stats
   end
 end
