@@ -17,3 +17,5 @@ gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 gem "sinatra-contrib"
 gem 'sqlite3'
 gem 'time_difference'
+gem 'minitest'
+gem 'coveralls', require: false
