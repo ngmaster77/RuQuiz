@@ -3,7 +3,9 @@ require_relative '../spec_helper'
 require_relative '../../config/environment'
 require 'minitest/spec'
 require 'minitest/autorun'
+require 'minitest/reporters'
 require 'coveralls'
+Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 class UserTest < ActiveSupport::TestCase
   def setup
