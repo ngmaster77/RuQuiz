@@ -1,12 +1,14 @@
 ![Ruby](/public/images/titulo.png)
 
+***
+
 [![Build Status](https://travis-ci.com/alu0100816167/SYTW.svg?token=PDMoqywayE5S4e1qBg5g&branch=master)](https://travis-ci.com/alu0100816167/SYTW)
 
 Con esta plataforma se pretende que tanto alumnos como profesores que la usen aprendan a través de cuestionarios. De esta manera, en un entorno educativo un maestro podrá evaluar a sus alumnos sobre un tema que se aborde en ese momento.
 
 Por ejemplo, si el temario dado en ese periodo es sobre Geografía, el tutor puede realizar un cuestionario sobre capitales, para comprobar que el alumno ha entendido todos los conceptos, así como obtener una retroalimentación de los cuestionarios realizados.
 
-##Requisitos
+## Requisitos
 
 Para el funcionamiento de la aplicación, será necesario disponer de **Ruby** instalado en el sistema.
 
@@ -16,7 +18,7 @@ Para comprobar que versión tenemos instalada, usar:
 
 **NOTA: Tener una versión superior a 2.3 de Ruby**
 
-##Uso
+## Uso
 
 1. Clonar el repositorio
 2. Ejecutar `$ bundle install`
@@ -24,14 +26,14 @@ Para comprobar que versión tenemos instalada, usar:
 4. Acceder a la plataforma a través de `localhost:9292`
 
 
-##Autores
+## Autores
 
 * Nestor García Moreno
 * Carlos de Armas Hernández
 * Alejandro Arzola García
 * Samuel Valcárcel Arce
 
-##Estructura
+## Estructura
 
 ```
 .
