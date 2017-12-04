@@ -28,6 +28,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    ansi (1.5.0)
     arel (8.0.0)
     backports (3.10.3)
     bcrypt (3.1.11)
@@ -64,6 +65,11 @@ GEM
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.10.3)
+    minitest-reporters (1.1.19)
+      ansi
+      builder
+      minitest (>= 5.0)
+      ruby-progressbar
     multi_json (1.12.2)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
@@ -111,6 +117,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.7.0)
     rspec-support (3.7.0)
+    ruby-progressbar (1.9.0)
     sass (3.5.3)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -161,6 +168,7 @@ DEPENDENCIES
   coveralls
   dotenv
   minitest
+  minitest-reporters
   omniauth
   omniauth-github
   rack-flash3
