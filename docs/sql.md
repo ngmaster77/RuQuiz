@@ -46,3 +46,8 @@ SELECT * FROM users ORDER BY users.id DESC LIMIT 1
 ```
 
 Para más información sobre las consultas en Active Record y su equivalencia en SQLITE visite la [guía](http://guides.rubyonrails.org/v2.3.8/active_record_querying.html)
+
+
+### RuQuiz
+
+![](./images/er.jpeg)
