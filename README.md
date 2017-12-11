@@ -3,7 +3,7 @@
 ***
 
 [![Build Status](https://travis-ci.com/alu0100816167/SYTW.svg?token=PDMoqywayE5S4e1qBg5g&branch=master)](https://travis-ci.com/alu0100816167/SYTW)
-[![Dependency Status](https://gemnasium.com/badges/6a7f9b334f1857919586c682e8a7059c.svg)](https://gemnasium.com/github.com/Cosaca/SYTW)
+[![Dependency Status](https://gemnasium.com/badges/695cd06a6c61d7edc5e822edd4e56d49.svg)](https://gemnasium.com/github.com/nestor-gm/SYTW)
 
 
 Con esta plataforma se pretende que tanto alumnos como profesores que la usen aprendan a través de cuestionarios. De esta manera, en un entorno educativo un maestro podrá evaluar a sus alumnos sobre un tema que se aborde en ese momento.
