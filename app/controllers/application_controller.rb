@@ -95,14 +95,29 @@ class ApplicationController < Sinatra::Base
     @user = User.find(session[:id])
     @cuestionarios = Resultado.joins(:user,:cuestionario).where(resultados: {user_id: @user.id}).select("titulo,nota,notamaxima,creador,descripcion,cuestionario_id,fechacre,fechares,notaaprobar").group("cuestionario_id").having("max(nota is not null)")
     @aprobados = Resultado.joins(:user,:cuestionario).where("nota >= notaaprobar", resultados: {user_id: @user.id}).count(:cuestionario_id)
+    @totales = Resultado.joins(:user,:cuestionario).where( resultados: {user_id: @user.id}).count(:cuestionario_id)
+    @suspendidos = @totales - @aprobados
     @nota_media = Resultado.joins(:user,:cuestionario).where(resultados: {user_id: @user.id}).select("nota, notamaxima")
     @show_media = Array.new
     @nota_media.each do |nota|
       aux = (nota.nota * 100) / nota.notamaxima
       @show_media << aux
     end
-    @show_media = @show_media.reduce(:+) / @show_media.size.to_f
-    @data = {'prueba' => :user}
+    @show_media = (@show_media.reduce(:+) / @show_media.size.to_f).round(2)
+    @last_10 = Resultado.joins(:user,:cuestionario).where(resultados: {user_id: @user.id}).select("nota,fechares,notamaxima").limit(10)
+    @area_chart = Hash.new
+    @last_10.each do |nota|
+      aux = (nota.nota * 100) / nota.notamaxima
+      @area_chart[nota.fechares] = aux
+    end
+    @resultados_cuestionario = Resultado.joins(:user,:cuestionario).where(resultados: {user_id: @user.id}).select("titulo, cuestionario_id").group("titulo")
+    @column_chart = Hash.new
+    @resultados_cuestionario.each do |quiz|
+      @aux = Resultado.joins(:user,:cuestionario).where(cuestionario_id: quiz.cuestionario_id, resultados: {user_id: @user.id}).count()
+      puts @aux
+      @column_chart[quiz.titulo] = @aux
+    end
+    puts @column_chart
     erb :stats
   end
 end

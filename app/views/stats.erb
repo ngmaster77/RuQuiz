@@ -65,28 +65,34 @@
                 <div class="row">
                   <div class="col-4">
                     <div class="card">
+                      <div class="card-header">
+                        Cuestionarios realizados
+                      </div>
                       <div class="card-body">
-                        <h4 class="card-title text-center">Total cuestionarios realizados</h4>
                         <div class="text-center">
-                          <span class="number"><%= @cuestionarios.length %></span>
+                          <span class="number"><%= @totales %></span>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="col-4">
+                  <div class="col-4 ruquiz-card">
                     <div class="card">
+                      <div class="card-header">
+                        Cuestionarios aprobados
+                      </div>
                       <div class="card-body">
-                        <h4 class="card-title text-center">Cuestionarios aprobados</h4>
                         <div class="text-center">
                           <span class="number"><%= @aprobados %></span>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="col-4">
+                  <div class="col-4 ruquiz-card">
                     <div class="card">
+                      <div class="card-header">
+                        Nota media
+                      </div>
                       <div class="card-body">
-                        <h4 class="card-title text-center">Nota media</h4>
                         <div class="text-center">
                           <span class="number"><%= @show_media %>%</span>
                         </div>
@@ -94,13 +100,151 @@
                     </div>
                   </div>
                 </div>
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
+                <div class="row">
+                  <div class="col-12 ruquiz-card">
+                    <div class="card">
+                      <div class="card-header">
+                        Resultado de los últimos 10 cuestionarios
+                      </div>
+                      <div class="card-body">
+                        <%= line_chart(@area_chart, colors: ["#dc3545"], xtitle: "Nota", ytitle: "Fecha") %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 ruquiz-card">
+                    <div class="card">
+                      <div class="card-header">
+                        Ratio aprobados/suspendos
+                      </div>
+                      <div class="card-body">
+                        <%= pie_chart({"Aprobados" => @aprobados, "Suspendidos" => @suspendidos}) %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 ruquiz-card">
+                    <div class="card">
+                      <div class="card-header">
+                        Repetición de cuestionarios
+                      </div>
+                      <div class="card-body">
+                        <%= column_chart(@column_chart, colors: ["#dc3545"], xtitle: "Título cuestionario", ytitle: "Número repeticiones") %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
+              <hr>
               <% @cuestionarios.each do |cuestionario| %>
                 <div class="tab-pane fade show" id="list-<%= cuestionario.cuestionario_id %>"><%= cuestionario.titulo %></div>
               <%end%>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container d-block d-md-none">
+      <div class="row">
+          <div class="col-12">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="general-tab" data-toggle="tab" href="#general-m">General</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Cuestionarios</a>
+                  <div class="dropdown-menu">
+                    <% @cuestionarios.each do |cuestionario| %>
+                      <a class="dropdown-item" data-toggle="tab" href="#list-<%= cuestionario.cuestionario_id %>-m"><%= cuestionario.titulo %></a>
+                    <% end %>
+                  </div>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="general-m" role="tabpanel" aria-labelledby="home-tab">
+                <br>
+                <div class="row">
+                  <div class="col-12 ruquiz-card">
+                    <div class="card">
+                      <div class="card-header">
+                        Cuestionarios realizados
+                      </div>
+                      <div class="card-body">
+                        <div class="text-center">
+                          <span class="number"><%= @totales %></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 ruquiz-card">
+                    <div class="card">
+                      <div class="card-header">
+                        Cuestionarios aprobados
+                      </div>
+                      <div class="card-body">
+                        <div class="text-center">
+                          <span class="number"><%= @aprobados %></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 ruquiz-card">
+                    <div class="card">
+                      <div class="card-header">
+                        Nota media
+                      </div>
+                      <div class="card-body">
+                        <div class="text-center">
+                          <span class="number"><%= @show_media %>%</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 ruquiz-card">
+                    <div class="card">
+                      <div class="card-header">
+                        Resultado de los últimos 10 cuestionarios
+                      </div>
+                      <div class="card-body">
+                        <%= line_chart(@area_chart, colors: ["#dc3545"], xtitle: "Nota", ytitle: "Fecha") %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 ruquiz-card">
+                    <div class="card">
+                      <div class="card-header">
+                        Ratio aprobados/suspendos
+                      </div>
+                      <div class="card-body">
+                        <%= pie_chart({"Aprobados" => @aprobados, "Suspendidos" => @suspendidos}, legend: "bottom") %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 ruquiz-card">
+                    <div class="card">
+                      <div class="card-header">
+                        Repetición de cuestionarios
+                      </div>
+                      <div class="card-body">
+                        <%= column_chart(@column_chart, colors: ["#dc3545"], xtitle: "Título cuestionario", ytitle: "Número repeticiones") %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <% @cuestionarios.each do |cuestionario| %>
+                <div class="tab-pane fade" id="list-<%= cuestionario.cuestionario_id %>-m">
+                  <br>
+                  <h1><%= cuestionario.titulo %></h1>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
