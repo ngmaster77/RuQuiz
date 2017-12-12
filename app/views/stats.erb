@@ -136,10 +136,85 @@
                     </div>
                   </div>
                 </div>
+                <hr>
               </div>
-              <hr>
-              <% @cuestionarios.each do |cuestionario| %>
-                <div class="tab-pane fade show" id="list-<%= cuestionario.cuestionario_id %>"><%= cuestionario.titulo %></div>
+              <% @quiz_array.each do |cuestionario| %>
+                <div class="tab-pane fade show" id="list-<%= cuestionario["id"] %>">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="card">
+                        <div class="card-header">
+                          <%= cuestionario["titulo"] %>
+                        </div>
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-4">
+                              <div class="card">
+                                <div class="card-header">
+                                  Nº veces resuleto
+                                </div>
+                                <div class="card-body">
+                                  <div class="text-center">
+                                    <span class="number"><%= cuestionario["n_resuelto"] %></span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-4 ruquiz-card">
+                              <div class="card">
+                                <div class="card-header">
+                                  Nº veces aprobado
+                                </div>
+                                <div class="card-body">
+                                  <div class="text-center">
+                                    <span class="number"><%= cuestionario["n_aprobado"] %></span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-4 ruquiz-card">
+                              <div class="card">
+                                <div class="card-header">
+                                  Nota media
+                                </div>
+                                <div class="card-body">
+                                  <div class="text-center">
+                                    <span class="number"><%= cuestionario["n_media"] %>%</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-12 ruquiz-card">
+                              <div class="card">
+                                <div class="card-header">
+                                  Resultado de los últimos 10 cuestionarios
+                                </div>
+                                <div class="card-body">
+                                  <%= line_chart(@area_chart_ind, colors: ["#dc3545"], xtitle: "Nota", ytitle: "Fecha") %>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-12 ruquiz-card">
+                              <div class="card">
+                                <div class="card-header">
+                                  Ratio aprobados/suspendos
+                                </div>
+                                <div class="card-body">
+                                  <%= pie_chart({"Aprobados" => @quiz_hash["n_aprobado"], "Suspendidos" => @quiz_hash["n_suspensos"]}) %>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                </div>
               <%end%>
             </div>
           </div>
@@ -239,10 +314,83 @@
                   </div>
                 </div>
               </div>
-              <% @cuestionarios.each do |cuestionario| %>
-                <div class="tab-pane fade" id="list-<%= cuestionario.cuestionario_id %>-m">
+              <% @quiz_array.each do |cuestionario| %>
+                <div class="tab-pane fade" id="list-<%= cuestionario["id"] %>-m">
                   <br>
-                  <h1><%= cuestionario.titulo %></h1>
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="card">
+                        <div class="card-header">
+                          <%= cuestionario["titulo"] %>
+                        </div>
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-12 ruquiz-card">
+                              <div class="card">
+                                <div class="card-header">
+                                  Nº veces resuleto
+                                </div>
+                                <div class="card-body">
+                                  <div class="text-center">
+                                    <span class="number"><%= cuestionario["n_resuelto"] %></span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-12 ruquiz-card">
+                              <div class="card">
+                                <div class="card-header">
+                                  Nº veces aprobado
+                                </div>
+                                <div class="card-body">
+                                  <div class="text-center">
+                                    <span class="number"><%= cuestionario["n_aprobado"] %></span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-12 ruquiz-card">
+                              <div class="card">
+                                <div class="card-header">
+                                  Nota media
+                                </div>
+                                <div class="card-body">
+                                  <div class="text-center">
+                                    <span class="number"><%= cuestionario["n_media"] %>%</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-12 ruquiz-card">
+                              <div class="card">
+                                <div class="card-header">
+                                  Resultado de los últimos 10 cuestionarios
+                                </div>
+                                <div class="card-body">
+                                  <%= line_chart(@area_chart_ind, colors: ["#dc3545"], xtitle: "Nota", ytitle: "Fecha") %>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-12 ruquiz-card">
+                              <div class="card">
+                                <div class="card-header">
+                                  Ratio aprobados/suspendos
+                                </div>
+                                <div class="card-body">
+                                  <%= pie_chart({"Aprobados" => @quiz_hash["n_aprobado"], "Suspendidos" => @quiz_hash["n_suspensos"]}) %>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
                 </div>
               <% end %>
             </div>
