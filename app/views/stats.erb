@@ -48,8 +48,11 @@
       </div>
     </nav>
     <br>
+
+    <!-- Alumno -->
     <% if !@user.instructor %>
       <%if @cuestionarios.length != 0 %>
+        <!-- Versión de escritorio -->
         <div class="container d-none d-md-block">
           <div class="row">
             <div class="col-3">
@@ -202,7 +205,7 @@
                               <div class="col-12 ruquiz-card">
                                 <div class="card">
                                   <div class="card-header">
-                                    Ratio aprobados/suspensos PRUEBA
+                                    Ratio aprobados/suspensos
                                   </div>
                                   <div class="card-body">
                                     <%= pie_chart({"Aprobados" => cuestionario["n_aprobado"], "Suspendidos" => cuestionario["n_suspensos"]}) %>
@@ -221,6 +224,7 @@
             </div>
           </div>
         </div>
+        <!-- Versión móvil -->
         <div class="container d-block d-md-none">
         <div class="row">
             <div class="col-12">
@@ -398,7 +402,6 @@
             </div>
           </div>
         </div>
-
       <%else%>
         <div class="container">
           <div class="row">
@@ -411,8 +414,348 @@
           </div>
         </div>
       <%end%>
+    <!-- Profesor -->
     <% else %>
-      <h1>hola <%= @hola %></h1>
+      <%if @cuest_profesor.length != 0 %>
+        <!-- Versión de escritorio -->
+        <div class="container d-none d-md-block">
+          <div class="row">
+            <div class="col-3">
+              <div class="list-group" id="list-tab" role="tablist">
+                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">General</a>
+                <% @cuest_profesor.each do |cuestionario| %>
+                  <a class="list-group-item list-group-item-action" id="list-<%= cuestionario.id %>-list" data-toggle="list" href="#list-<%= cuestionario.id %>"><%= cuestionario.titulo %></a>
+                <%end%>
+              </div>
+            </div>
+            <div class="col-9">
+              <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                  <div class="row">
+                    <div class="col-4">
+                      <div class="card">
+                        <div class="card-header">
+                          Cuestionarios creados
+                        </div>
+                        <div class="card-body">
+                          <div class="text-center">
+                            <span class="number"><%= @profesor_stats[0]["creados"] %></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-4 ruquiz-card">
+                      <div class="card">
+                        <div class="card-header">
+                          Porcentaje de aprobados
+                        </div>
+                        <div class="card-body">
+                          <div class="text-center">
+                            <span class="number"><%= @profesor_stats[0]["%aprobados"] %>%</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-4 ruquiz-card">
+                      <div class="card">
+                        <div class="card-header">
+                          Nota media
+                        </div>
+                        <div class="card-body">
+                          <div class="text-center">
+                            <span class="number"><%= @profesor_stats[0]["notamedia"] %>%</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 ruquiz-card">
+                      <div class="card">
+                        <div class="card-header">
+                          Resultado de los últimos 10 cuestionarios
+                        </div>
+                        <div class="card-body">
+                          <%= line_chart(@profesor_stats[0]["line_chart"], colors: ["#dc3545"], xtitle: "Nota", ytitle: "Fecha") %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 ruquiz-card">
+                      <div class="card">
+                        <div class="card-header">
+                          Ratio aprobados/suspensos
+                        </div>
+                        <div class="card-body">
+                          <%= pie_chart({"Aprobados" => @profesor_stats[0]["aprobados"], "Suspendidos" => @profesor_stats[0]["suspendidos"]}) %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                </div>
+                <% @profesor_stats.drop(1).each do |cuestionario| %>
+                  <div class="tab-pane fade show" id="list-<%= cuestionario["id"] %>">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="card">
+                          <div class="card-header">
+                            <%= cuestionario["titulo"] %>
+                          </div>
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-4">
+                                <div class="card">
+                                  <div class="card-header">
+                                    Nº veces resuleto
+                                  </div>
+                                  <div class="card-body">
+                                    <div class="text-center">
+                                      <span class="number"><%= cuestionario["n_resuelto"] %></span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-4 ruquiz-card">
+                                <div class="card">
+                                  <div class="card-header">
+                                    Nº veces aprobado
+                                  </div>
+                                  <div class="card-body">
+                                    <div class="text-center">
+                                      <span class="number"><%= cuestionario["n_aprobados"] %></span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-4 ruquiz-card">
+                                <div class="card">
+                                  <div class="card-header">
+                                    Nota media
+                                  </div>
+                                  <div class="card-body">
+                                    <div class="text-center">
+                                      <span class="number"><%= cuestionario["n_media"] %>%</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12 ruquiz-card">
+                                <div class="card">
+                                  <div class="card-header">
+                                    Resultado de los últimos 10 cuestionarios
+                                  </div>
+                                  <div class="card-body">
+                                    <%= line_chart(cuestionario["line_chart"], colors: ["#dc3545"], xtitle: "Nota", ytitle: "Fecha") %>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12 ruquiz-card">
+                                <div class="card">
+                                  <div class="card-header">
+                                    Ratio aprobados/suspensos
+                                  </div>
+                                  <div class="card-body">
+                                    <%= pie_chart({"Aprobados" => cuestionario["n_aprobados"], "Suspendidos" => cuestionario["n_suspensos"]}) %>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <hr>
+                  </div>
+                <%end%>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Versión de móvil -->
+        <div class="container d-block d-md-none">
+          <div class="row">
+            <div class="col-12">
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" id="general-tab" data-toggle="tab" href="#general-m">General</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Cuestionarios</a>
+                    <div class="dropdown-menu">
+                      <% @cuest_profesor.each do |cuestionario| %>
+                        <a class="dropdown-item" data-toggle="tab" href="#list-<%= cuestionario.id %>-m"><%= cuestionario.titulo %></a>
+                      <% end %>
+                    </div>
+                  </li>
+              </ul>
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="general-m" role="tabpanel" aria-labelledby="home-tab">
+                  <br>
+                  <div class="row">
+                    <div class="col-12 ruquiz-card">
+                      <div class="card">
+                        <div class="card-header">
+                          Cuestionarios creados
+                        </div>
+                        <div class="card-body">
+                          <div class="text-center">
+                            <span class="number"><%= @profesor_stats[0]["creados"] %></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 ruquiz-card">
+                      <div class="card">
+                        <div class="card-header">
+                          Porcentaje de aprobados
+                        </div>
+                        <div class="card-body">
+                          <div class="text-center">
+                            <span class="number"><%= @profesor_stats[0]["%aprobados"] %>%</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 ruquiz-card">
+                      <div class="card">
+                        <div class="card-header">
+                          Nota media
+                        </div>
+                        <div class="card-body">
+                          <div class="text-center">
+                            <span class="number"><%= @profesor_stats[0]["notamedia"] %>%</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 ruquiz-card">
+                      <div class="card">
+                        <div class="card-header">
+                          Resultado de los últimos 10 cuestionarios
+                        </div>
+                        <div class="card-body">
+                          <%= line_chart(@profesor_stats[0]["line_chart"], colors: ["#dc3545"], xtitle: "Nota", ytitle: "Fecha") %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 ruquiz-card">
+                      <div class="card">
+                        <div class="card-header">
+                          Ratio aprobados/suspensos
+                        </div>
+                        <div class="card-body">
+                          <%= pie_chart({"Aprobados" => @profesor_stats[0]["aprobados"], "Suspendidos" => @profesor_stats[0]["suspendidos"]}) %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                </div>
+                <% @profesor_stats.drop(1).each do |cuestionario| %>
+                  <div class="tab-pane fade" id="list-<%= cuestionario["id"] %>-m">
+                    <br>
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="card">
+                          <div class="card-header">
+                            <%= cuestionario["titulo"] %>
+                          </div>
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-12 ruquiz-card">
+                                <div class="card">
+                                  <div class="card-header">
+                                    Nº veces resuleto
+                                  </div>
+                                  <div class="card-body">
+                                    <div class="text-center">
+                                      <span class="number"><%= cuestionario["n_resuelto"] %></span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-12 ruquiz-card">
+                                <div class="card">
+                                  <div class="card-header">
+                                    Nº veces aprobado
+                                  </div>
+                                  <div class="card-body">
+                                    <div class="text-center">
+                                      <span class="number"><%= cuestionario["n_aprobados"] %></span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-12 ruquiz-card">
+                                <div class="card">
+                                  <div class="card-header">
+                                    Nota media
+                                  </div>
+                                  <div class="card-body">
+                                    <div class="text-center">
+                                      <span class="number"><%= cuestionario["n_media"] %>%</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12 ruquiz-card">
+                                <div class="card">
+                                  <div class="card-header">
+                                    Resultado de los últimos 10 cuestionarios
+                                  </div>
+                                  <div class="card-body">
+                                    <%= line_chart(cuestionario["line_chart"], colors: ["#dc3545"], xtitle: "Nota", ytitle: "Fecha") %>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12 ruquiz-card">
+                                <div class="card">
+                                  <div class="card-header">
+                                    Ratio aprobados/suspensos
+                                  </div>
+                                  <div class="card-body">
+                                    <%= pie_chart({"Aprobados" => cuestionario["n_aprobados"], "Suspendidos" => cuestionario["n_suspensos"]}) %>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <hr>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% else %>
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="alert alert-danger text-center" role="alert">
+                No has creado todavía ningún cuestionario. Crea tu primer cuestionario haciendo click en
+                <a href="/newcuestionario" class="alert-link">"Crear Cuestionario"</a>.
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
     <% end %>
 
 </body>
