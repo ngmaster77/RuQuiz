@@ -1,0 +1,432 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Sinatra · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="erb.html" />
+    
+    
+    <link rel="prev" href="sql.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="rack.html">
+            
+                <a href="rack.html">
+            
+                    
+                    Rack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="bcrypt.html">
+            
+                <a href="bcrypt.html">
+            
+                    
+                    Bcrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="mvc.html">
+            
+                <a href="mvc.html">
+            
+                    
+                    MVC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="sql.html">
+            
+                <a href="sql.html">
+            
+                    
+                    Base de Datos
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6" data-path="sinatra.html">
+            
+                <a href="sinatra.html">
+            
+                    
+                    Sinatra
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="erb.html">
+            
+                <a href="erb.html">
+            
+                    
+                    Vistas
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="tests.html">
+            
+                <a href="tests.html">
+            
+                    
+                    Tests
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="ci.html">
+            
+                <a href="ci.html">
+            
+                    
+                    Integración continua
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="jquery.html">
+            
+                <a href="jquery.html">
+            
+                    
+                    jQuery
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="chartkick.html">
+            
+                <a href="chartkick.html">
+            
+                    
+                    Chartkick
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Sinatra</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="sinatra">Sinatra</h1>
+<p>Sinatra es un <a href="https://es.wikipedia.org/wiki/Lenguaje_de_dominio_espec%C3%ADfico" target="_blank">DSL</a> (Domain Specific Language) que permite crear aplicaciones web en Ruby con una sintaxis sencilla y f&#xE1;cilmente legible.</p>
+<p>Para instalar la gema y usarla en nuestro proyecto escribimos en la consola 
+<code>$ gem install sinatra</code></p>
+<p>En caso de tener un Gemfile, basta con a&#xF1;adir la siguiente l&#xED;nea a este fichero </p>
+<pre><code class="lang-ruby">gem <span class="hljs-string">&apos;sinatra&apos;</span>
+</code></pre>
+<p>Una vez hecho esto, escribimos en la consola <code>$ bundle install</code>.</p>
+<h3 id="rutas">Rutas</h3>
+<p>En Sinatra, una ruta es un m&#xE9;todo HTTP junto a un patr&#xF3;n de un URL. Cada ruta est&#xE1; asociada a un bloque, peor ejemplo:</p>
+<pre><code class="lang-ruby">get <span class="hljs-string">&apos;/&apos;</span> <span class="hljs-keyword">do</span>
+  .. mostrar algo ..
+<span class="hljs-keyword">end</span>
+
+post <span class="hljs-string">&apos;/&apos;</span> <span class="hljs-keyword">do</span>
+  .. crear algo ..
+<span class="hljs-keyword">end</span>
+
+delete <span class="hljs-string">&apos;/&apos;</span> <span class="hljs-keyword">do</span>
+  .. eliminar algo ..
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Las rutas son comparadas en el orden en el que son definidas. La primera ruta que coincide con la petici&#xF3;n es escogida.</p>
+<p>Tambi&#xE9;n es posible definir rutas que reciben par&#xE1;metros. &#xC9;stos son accesibles a trav&#xE9;s del hash <strong><em>params</em></strong>:</p>
+<pre><code class="lang-ruby">get <span class="hljs-string">&apos;/hola/:nombre&apos;</span> <span class="hljs-keyword">do</span>
+  <span class="hljs-comment"># coincide con &quot;GET /hola/foo&quot; y &quot;GET /hola/bar&quot;</span>
+  <span class="hljs-comment"># params[&apos;nombre&apos;] es &apos;foo&apos; o &apos;bar&apos;</span>
+  <span class="hljs-string">&quot;Hola <span class="hljs-subst">#{params[<span class="hljs-string">&apos;nombre&apos;</span>]}</span>!&quot;</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Tambi&#xE9;n es posible realizar lo mismo usando par&#xE1;metros de bloque:</p>
+<pre><code class="lang-ruby">get <span class="hljs-string">&apos;/hola/:nombre&apos;</span> <span class="hljs-keyword">do</span> |n|
+  <span class="hljs-comment"># coincide con &quot;GET /hola/foo&quot; y &quot;GET /hola/bar&quot;</span>
+  <span class="hljs-comment"># params[&apos;nombre&apos;] es &apos;foo&apos; o &apos;bar&apos;</span>
+  <span class="hljs-comment"># n almacena params[&apos;nombre&apos;]</span>
+  <span class="hljs-string">&quot;Hola <span class="hljs-subst">#{n}</span>!&quot;</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h3 id="archivos-est&#xE1;ticos">Archivos est&#xE1;ticos</h3>
+<p>Los archivos est&#xE1;ticos son servidos desde el directorio p&#xFA;blico ./public, como es el caso de nuestro proyecto. Sin embargo, se puede especificar una ubicaci&#xF3;n diferente ajustando la opci&#xF3;n :public_folder:</p>
+<pre><code class="lang-ruby">set <span class="hljs-symbol">:public_folder</span>, File.dirname(__FILE_<span class="hljs-number">_</span>) + <span class="hljs-string">&apos;/estaticos&apos;</span>
+</code></pre>
+<h3 id="sesiones">Sesiones</h3>
+<p>Una sesi&#xF3;n es usada para mantener el estado a trav&#xE9;s de distintas peticiones. Cuando est&#xE1;n activadas, proporciona un hash de sesi&#xF3;n para cada sesi&#xF3;n de usuario.</p>
+<pre><code class="lang-ruby">enable <span class="hljs-symbol">:sessions</span>
+
+get <span class="hljs-string">&apos;/&apos;</span> <span class="hljs-keyword">do</span>
+  <span class="hljs-string">&quot;valor = &quot;</span> &lt;&lt; session[<span class="hljs-symbol">:valor</span>].inspect
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Para incrementar la seguridad, los datos de la sesi&#xF3;n almacenados en la cookie son firmados con un secreto de sesi&#xF3;n. Este secreto, es generado aleatoriamente por Sinatra. De cualquier manera, hay que tener en cuenta que cada vez que inicies la aplicaci&#xF3;n se va a generar uno nuevo.
+En nuestro caso, hemos decidido que todas las instancias de nuestra aplicaci&#xF3;n compartan un &#xFA;nico secreto, el cual se define as&#xED;:</p>
+<pre><code class="lang-ruby">set <span class="hljs-symbol">:session_secret</span>, <span class="hljs-string">&apos;super secreto&apos;</span>
+</code></pre>
+<h3 id="redirecci&#xF3;n-del-navegador">Redirecci&#xF3;n del navegador</h3>
+<p>Sinatra incluye el m&#xE9;todo <em>redirect</em> para redireccionar a una ruta:</p>
+<pre><code class="lang-ruby">get <span class="hljs-string">&apos;/foo&apos;</span> <span class="hljs-keyword">do</span>
+  redirect to <span class="hljs-string">&apos;/bar&apos;</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Para redireccionar a la ruta desde donde vino el usuario:</p>
+<pre><code class="lang-ruby">get <span class="hljs-string">&apos;/bar&apos;</span> <span class="hljs-keyword">do</span>
+  .... hacer algo ....
+  redirect back
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Para pasar argumentos con una redirecci&#xF3;n:</p>
+<pre><code class="lang-ruby">redirect to <span class="hljs-string">&apos;/bar?suma=42&apos;</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="sql.html" class="navigation navigation-prev " aria-label="Previous page: Base de Datos">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="erb.html" class="navigation navigation-next " aria-label="Next page: Vistas">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Sinatra","level":"1.6","depth":1,"next":{"title":"Vistas","level":"1.7","depth":1,"path":"content/erb.md","ref":"content/erb.md","articles":[]},"previous":{"title":"Base de Datos","level":"1.5","depth":1,"path":"content/sql.md","ref":"content/sql.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"content/sinatra.md","mtime":"2017-12-11T20:06:00.465Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-19T17:10:53.234Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

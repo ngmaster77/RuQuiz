@@ -1,0 +1,387 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Tests · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ci.html" />
+    
+    
+    <link rel="prev" href="erb.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="rack.html">
+            
+                <a href="rack.html">
+            
+                    
+                    Rack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="bcrypt.html">
+            
+                <a href="bcrypt.html">
+            
+                    
+                    Bcrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="mvc.html">
+            
+                <a href="mvc.html">
+            
+                    
+                    MVC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="sql.html">
+            
+                <a href="sql.html">
+            
+                    
+                    Base de Datos
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="sinatra.html">
+            
+                <a href="sinatra.html">
+            
+                    
+                    Sinatra
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="erb.html">
+            
+                <a href="erb.html">
+            
+                    
+                    Vistas
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8" data-path="tests.html">
+            
+                <a href="tests.html">
+            
+                    
+                    Tests
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="ci.html">
+            
+                <a href="ci.html">
+            
+                    
+                    Integración continua
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="jquery.html">
+            
+                <a href="jquery.html">
+            
+                    
+                    jQuery
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="chartkick.html">
+            
+                <a href="chartkick.html">
+            
+                    
+                    Chartkick
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Tests</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="tests-ruquiz">Tests RuQuiz</h1>
+<p>En este proyecto los tests se encuentran en el directorio <strong>./test</strong>. Su estructura es la siguiente:</p>
+<pre><code>test/
+&#x251C;&#x2500;&#x2500; acceptance
+&#x2502;   &#x2514;&#x2500;&#x2500; app_test.rb
+&#x251C;&#x2500;&#x2500; models
+&#x2502;   &#x2514;&#x2500;&#x2500; user_test.rb
+&#x2514;&#x2500;&#x2500; spec_helper.rb
+</code></pre><p>En <em>spec_helper.rb</em> se encuentra la configuraci&#xF3;n necesaria para los tests. Se especifica a RSpec las opciones deseadas y se cambia el entorno (enviroment) de la aplicaci&#xF3;n a &quot;test&quot;.</p>
+<h2 id="tests-de-validaci&#xF3;n">Tests de validaci&#xF3;n</h2>
+<p>En el directorio <em>test/acceptance/app_test.rb</em> se encuentran las pruebas de validaci&#xF3;n. Estas pruebas son las encargadas de verificar que el software producido cumple con las especificaciones y logra su objetivo. Este tipo de pruebas son esenciales para verificar que lo que se ha desarrollado es lo que el usuario quer&#xED;a.</p>
+<p>Para este apartado se ha usado el framework <strong>Capybara</strong>, ya que permite probar aplicaciones web simulando c&#xF3;mo un usario real interactuar&#xED;a con la plataforma.</p>
+<p>Un ejemplo para probar la ruta &apos;/login&apos; ser&#xED;a:</p>
+<p><img src="images/acceptance_1.png" alt="Ejemplo prueba de rutas" title="Ejemplo prueba de rutas"></p>
+<p>Un ejemplo para probar que el registro de usuarios es correcto ser&#xED;a:</p>
+<p><img src="images/acceptance_2.png" alt="Ejemplo prueba registro usuario" title="Ejemplo prueba registro usuario"></p>
+<p>Para ejecutar los tests de validaci&#xF3;n basta con escribir en la consola <code>$ rake acceptance</code> y la salida correcta ser&#xED;a:</p>
+<p><img src="images/acceptance_output.png" alt="Acceptance output" title="Acceptance output"></p>
+<h2 id="test-de-modelos-de-la-base-de-datos">Test de modelos de la base de datos</h2>
+<p>Para probar el modelo de la base de datos correspondiente a los usuarios se ha usado <strong>minitest</strong>, un ligero y r&#xE1;pido framework para tests unitarios. Permite probar las condiciones del modelo y comprobar que se han definido correctamente, por ejemplo, que un usario no se pueda registrar en la base de datos con el campo de nombre vac&#xED;o.</p>
+<p>Un ejemplo para probar que un usuario no se puede registrar con el campo de email vac&#xED;o ser&#xED;a:</p>
+<p><img src="images/minitest_user.png" alt="Ejemplo minitest" title="Ejemplo minitest"></p>
+<p>Para ejecutar los tests de los modelos,s&#xF3;lo hay que escribir <code>$ rake models</code> y la salida correcta ser&#xED;a la siguiente:</p>
+<p><img src="images/minitest_output.png" alt="Minitest output" title="Minitest output"></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="erb.html" class="navigation navigation-prev " aria-label="Previous page: Vistas">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ci.html" class="navigation navigation-next " aria-label="Next page: Integración continua">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Tests","level":"1.8","depth":1,"next":{"title":"Integración continua","level":"1.9","depth":1,"path":"content/ci.md","ref":"content/ci.md","articles":[]},"previous":{"title":"Vistas","level":"1.7","depth":1,"path":"content/erb.md","ref":"content/erb.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"content/tests.md","mtime":"2017-12-11T20:06:00.465Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-19T17:10:53.234Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

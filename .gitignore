@@ -1,7 +1,0 @@
-.idea
-.DS_Store
-node_modules
-.publish
-_book
-.env
-.rspec_status

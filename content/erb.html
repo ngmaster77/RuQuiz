@@ -1,0 +1,379 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Vistas · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="tests.html" />
+    
+    
+    <link rel="prev" href="sinatra.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="rack.html">
+            
+                <a href="rack.html">
+            
+                    
+                    Rack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="bcrypt.html">
+            
+                <a href="bcrypt.html">
+            
+                    
+                    Bcrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="mvc.html">
+            
+                <a href="mvc.html">
+            
+                    
+                    MVC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="sql.html">
+            
+                <a href="sql.html">
+            
+                    
+                    Base de Datos
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="sinatra.html">
+            
+                <a href="sinatra.html">
+            
+                    
+                    Sinatra
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7" data-path="erb.html">
+            
+                <a href="erb.html">
+            
+                    
+                    Vistas
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="tests.html">
+            
+                <a href="tests.html">
+            
+                    
+                    Tests
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="ci.html">
+            
+                <a href="ci.html">
+            
+                    
+                    Integración continua
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="jquery.html">
+            
+                <a href="jquery.html">
+            
+                    
+                    jQuery
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="chartkick.html">
+            
+                <a href="chartkick.html">
+            
+                    
+                    Chartkick
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Vistas</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="vistas-erb">Vistas (.erb)</h1>
+<p>Una vista es una p&#xE1;gina web o un fragmento que se guarda en un archivo aparte. En una vista podr&#xED;amos guardar, por tanto, toda la estructura de una p&#xE1;gina, o si preferimos una organizaci&#xF3;n m&#xE1;s minuciosa y por m&#xF3;dulos, podremos guardar simplemente una secci&#xF3;n, como puede ser la cabecera, pie, barra de navegaci&#xF3;n, etc.</p>
+<p>Nosotros hemos optado por ERB <strong>(Embedded RuBy)</strong>. Es una caracter&#xED;stica de Ruby que permite generar cualquier clase de texto, cualquier tama&#xF1;o de fichero, desde plantillas. &#xC9;stas combinan texto sin formato con c&#xF3;digo Ruby para la sustituci&#xF3;n de variables y control de flujo, lo que facilita su escritura y mantenimiento.</p>
+<p>El framework Sinatra soporta varios tipos de plantillas: .haml, .erb, .rhtml, etc. En nuestro caso, hemos
+optado por el formato .erb para renderizar las diferentes vistas que usa nuestra aplicaci&#xF3;n.</p>
+<h2 id="vistas-en-el-controlador">Vistas en el controlador</h2>
+<p>Cada tipo de plantilla en Sinatra se renderiza con su propio m&#xE9;todo. En el caso de nuestra &quot;Landing Page&quot;, en el controlador tendremos que especificar que una vez que se acceda a la p&#xE1;gina principal, la vista que se cargue sea <code>index.erb</code> (nuestra p&#xE1;gina principal):</p>
+<pre><code class="lang-ruby">get <span class="hljs-string">&apos;/&apos;</span> <span class="hljs-keyword">do</span>
+  erb <span class="hljs-symbol">:index</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Esto especificar&#xE1; que esta vista se renderice en <code>views/index.erb</code>.</p>
+<h2 id="estilos-en-las-vistas">Estilos en las vistas</h2>
+<p>Por defecto, una vez se a&#xF1;ada en cada vista el fichero <code>.css</code> que vayamos a usar, en el controlador se le tendr&#xE1; que especificar a Sinatra desde donde se cargan los ficheros:</p>
+<pre><code class="lang-ruby">set <span class="hljs-symbol">:public_folder</span>, <span class="hljs-string">&apos;public&apos;</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="sinatra.html" class="navigation navigation-prev " aria-label="Previous page: Sinatra">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="tests.html" class="navigation navigation-next " aria-label="Next page: Tests">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Vistas","level":"1.7","depth":1,"next":{"title":"Tests","level":"1.8","depth":1,"path":"content/tests.md","ref":"content/tests.md","articles":[]},"previous":{"title":"Sinatra","level":"1.6","depth":1,"path":"content/sinatra.md","ref":"content/sinatra.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"content/erb.md","mtime":"2017-12-11T20:06:00.460Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-19T17:10:53.234Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
