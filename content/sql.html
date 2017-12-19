@@ -293,7 +293,7 @@
 <span class="hljs-keyword">end</span>
 </code></pre>
 <p>Usando el ORM Active Record, vemos que trata la tabla User como una clase, que hereda de la clase base del propio ORM. Esa clase tiene una serie de especificaciones (la obligaci&#xF3;n de ciertos atributos, las relaciones con otras tablas, etc)</p>
-<p><img src="images/modelo.png" alt=""></p>
+<p><img src="../images/modelo.png" alt=""></p>
 <p>Las relaciones se especifican con el atributo <code>has_many</code>que ser&#xED;a relaciones uno a muchos en un modelo Entidad Relaci&#xF3;n. Para m&#xE1;s informaci&#xF3;n sobre las relaciones entre las tablas pinche <a href="http://edgeguides.rubyonrails.org/association_basics.html" target="_blank">aqu&#xED;</a></p>
 <p>Si queremos insertar informaci&#xF3;n en la tabla, ser&#xED;a a trav&#xE9;s de instancias de la clases, como se puede ver en los controladores</p>
 <pre><code class="lang-ruby">@user = User.new(<span class="hljs-symbol">name:</span> params[<span class="hljs-string">&quot;name&quot;</span>], <span class="hljs-symbol">email:</span> params[<span class="hljs-string">&quot;email&quot;</span>], <span class="hljs-symbol">password:</span> params[<span class="hljs-string">&quot;password&quot;</span>])
@@ -305,7 +305,7 @@
 <pre><code>SELECT * FROM users ORDER BY users.id DESC LIMIT 1
 </code></pre><p>Para m&#xE1;s informaci&#xF3;n sobre las consultas en Active Record y su equivalencia en SQLITE visite la <a href="http://guides.rubyonrails.org/v2.3.8/active_record_querying.html" target="_blank">gu&#xED;a</a></p>
 <h3 id="ruquiz">RuQuiz</h3>
-<p><img src="images/er.jpeg" alt=""></p>
+<p><img src="../images/er.jpeg" alt=""></p>
 
                                 
                                 </section>
@@ -349,7 +349,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Base de Datos","level":"1.5","depth":1,"next":{"title":"Sinatra","level":"1.6","depth":1,"path":"content/sinatra.md","ref":"content/sinatra.md","articles":[]},"previous":{"title":"MVC","level":"1.4","depth":1,"path":"content/mvc.md","ref":"content/mvc.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"content/sql.md","mtime":"2017-12-11T20:06:00.465Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-19T17:10:53.234Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Base de Datos","level":"1.5","depth":1,"next":{"title":"Sinatra","level":"1.6","depth":1,"path":"content/sinatra.md","ref":"./content/sinatra.md","articles":[]},"previous":{"title":"MVC","level":"1.4","depth":1,"path":"content/mvc.md","ref":"./content/mvc.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"content/sql.md","mtime":"2017-12-19T19:54:41.077Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-19T19:56:05.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
