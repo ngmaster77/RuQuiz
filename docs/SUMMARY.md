@@ -9,3 +9,5 @@
 * [Sinatra](sinatra.md)
 * [Tests](tests.md)
 * [Integración continua](ci.md)
+* [jQuery](jquery.md)
+* [Chartkick](chartkick.md)
