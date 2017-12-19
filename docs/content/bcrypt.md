@@ -2,15 +2,15 @@
 
 Es un algoritmo de cifrado de hashing. Los algoritmos Hash toman una entrada  de datos (por ejemplo, la contraseña de  usuario) y crean una "huella digital" o hash de la misma. Como este proceso no es reversible, no hay forma de obtener la contraseña.
 
-``
+```
 hash(p) #=> <unique gibberish>
-``
+```
 
 Puede almacenar el hash y verificarlo con una contraseña validada:
 
-``
+```
 <unique gibberish> =? hash(just_entered_password)
-``
+```
 
 
 ## Password_digest: cómo encriptar nuestros datos en la base de datos
