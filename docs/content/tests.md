@@ -21,15 +21,15 @@ Para este apartado se ha usado el framework **Capybara**, ya que permite probar 
 
 Un ejemplo para probar la ruta '/login' sería:
 
-![Ejemplo prueba de rutas](./images/acceptance_1.png "Ejemplo prueba de rutas")
+![Ejemplo prueba de rutas](../../images/acceptance_1.png "Ejemplo prueba de rutas")
 
 Un ejemplo para probar que el registro de usuarios es correcto sería:
 
-![Ejemplo prueba registro usuario](./images/acceptance_2.png "Ejemplo prueba registro usuario")
+![Ejemplo prueba registro usuario](../../images/acceptance_2.png "Ejemplo prueba registro usuario")
 
 Para ejecutar los tests de validación basta con escribir en la consola `$ rake acceptance` y la salida correcta sería:
 
-![Acceptance output](./images/acceptance_output.png "Acceptance output")
+![Acceptance output](../../images/acceptance_output.png "Acceptance output")
 
 ## Test de modelos de la base de datos
 
@@ -37,8 +37,8 @@ Para probar el modelo de la base de datos correspondiente a los usuarios se ha u
 
 Un ejemplo para probar que un usuario no se puede registrar con el campo de email vacío sería:
 
-![Ejemplo minitest](./images/minitest_user.png "Ejemplo minitest")
+![Ejemplo minitest](../../images/minitest_user.png "Ejemplo minitest")
 
 Para ejecutar los tests de los modelos,sólo hay que escribir `$ rake models` y la salida correcta sería la siguiente:
 
-![Minitest output](./images/minitest_output.png "Minitest output")
+![Minitest output](../../images/minitest_output.png "Minitest output")

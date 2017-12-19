@@ -4,6 +4,12 @@ Con esta plataforma se pretende que tanto alumnos como profesores que la usen ap
 
 Por ejemplo, si el temario dado en ese periodo es sobre Geografía, el tutor puede realizar un cuestionario sobre capitales, para comprobar que el alumno ha entendido todos los conceptos, así como obtener una retroalimentación de los cuestionarios realizados.
 
+## Enlaces
+
+* [Documentación](https://nestor-gm.github.io/SYTW/)
+* [Repositorio](https://github.com/nestor-gm/SYTW)
+* [RuQuiz (para acceder debe estar conectado a la red de la ULL o mediante VPN)](http://10.6.129.61:8086/)
+
 ## Requisitos
 
 Para el funcionamiento de la aplicación, será necesario disponer de **Ruby** instalado en el sistema.

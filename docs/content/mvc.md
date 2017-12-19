@@ -10,7 +10,7 @@ Este patrón de arquitectura de software se basa en las ideas de reutilización 
 
 Para nuestra aplicación se ha seguido esta arquitectura de software como se puede ver en nuestro árbol de directorios
 
-![](./images/mvc.png)
+![](../../images/mvc.png)
 
 ##### Modelo
 
@@ -18,7 +18,7 @@ Es la representación de la información, gestiona todos los accesos a dicha inf
 
 Ejemplo de modelo en Sinatra, representa la tabla User, es decir, la información de todos los usuarios. El modelo valida la presencia de unos ciertos campos obligatorios, así como encriptar la contraseña. También se encarga de las interacciones con las otras tablas `has_many` (entidad-relación)
 
-![](./images/modelo.png)
+![](../../images/modelo.png)
 
 
 ##### Vista

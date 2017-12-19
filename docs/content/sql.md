@@ -24,7 +24,7 @@ end
 Usando el ORM Active Record, vemos que trata la tabla User como una clase, que hereda de la clase base del propio ORM. Esa clase tiene una serie de especificaciones (la obligación de ciertos atributos, las relaciones con otras tablas, etc)
 
 
-![](./images/modelo.png)
+![](../../images/modelo.png)
 
 Las relaciones se especifican con el atributo `has_many`que sería relaciones uno a muchos en un modelo Entidad Relación. Para más información sobre las relaciones entre las tablas pinche [aquí](http://edgeguides.rubyonrails.org/association_basics.html)
 
@@ -50,4 +50,4 @@ Para más información sobre las consultas en Active Record y su equivalencia en
 
 ### RuQuiz
 
-![](./images/er.jpeg)
+![](../../images/er.jpeg)
