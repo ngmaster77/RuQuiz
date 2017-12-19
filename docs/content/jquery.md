@@ -19,7 +19,7 @@ En nuestra vista `app/views/newcuestionario.erb` podemos ver la siguiente línea
 ```
 Esta línea nos permite crear un contenedor vacío donde ir añadiendo las preguntas al hacer click en los botones correspondientes.
 
-![](../..//images/jquery1.png)
+![](../images/jquery1.png)
 
 Si miramos el código de los botones en el fichero `app/views/newcuestionario.erb`, cada uno tiene un `id` asociado (`id="add1"`,`id="add2"`,`id="add3"`,...):
 
@@ -67,7 +67,7 @@ Vemos como en el fichero `public/js/addQuestion.js` existe una función para cad
 
 En el interior de cada función escribimos el código `HTML` necesario para crear las preguntas con el formato deseado:
 
-![](../..//images/jquery2.png)
+![](../images/jquery2.png)
 
 Una vez tenemos el código `HTML` utilizamos la función jQuery `.append()` que nos permite insertar código `HTML`.
 

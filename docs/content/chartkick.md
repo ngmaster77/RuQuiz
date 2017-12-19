@@ -1,6 +1,6 @@
 # Chartkick
 
-![](../../images/chartkick.png)
+![](../images/chartkick.png)
 
 Tal y como se puede ver en la caputra de pantalla de la página oficial de [Chartkick](https://www.chartkick.com/), se trata de un framework que permite crear estadísticas con JavaScript en solo una línea de Ruby.
 
@@ -8,11 +8,11 @@ Tal y como se puede ver en la caputra de pantalla de la página oficial de [Char
 
 Para nuestro proyecto hemos utilizado **Chartkick** para crear las estadísticas tanto para los alumnos como para los profesores. 
 
-![](../../images/ch1.png)
+![](../images/ch1.png)
 
-![](../../images/ch2.png)
+![](../images/ch2.png)
 
-![](../../images/ch3.png)
+![](../images/ch3.png)
 
 En este caso la dinámica es bastante sencilla, ya que la documentación que aporta Chartkick deja muy claro como hacerlo.
 
