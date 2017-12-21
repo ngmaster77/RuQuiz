@@ -97,7 +97,17 @@ class ApplicationController < Sinatra::Base
     if !@user.instructor
       @cuestionarios = Resultado.joins(:user,:cuestionario).where(resultados: {user_id: @user.id}).select("titulo,nota,notamaxima,creador,descripcion,cuestionario_id,fechacre,fechares,notaaprobar").group("cuestionario_id").having("max(nota is not null)")
       
-      @aprobados = Resultado.joins(:user,:cuestionario).where("nota >= notaaprobar", resultados: {user_id: @user.id}).count(:cuestionario_id)
+      @aprobados = 0 
+      @tot = Resultado.joins(:user,:cuestionario).where(resultados: {user_id: @user.id}).select("titulo,nota,notamaxima,notaaprobar")
+      @tot.each do |quiz|
+        puts "Titulo: #{quiz.titulo}"
+        puts "Nota: #{quiz.nota}"
+        puts "Nota Maxima: #{quiz.notamaxima}"
+        puts "Nota Aprobar: #{quiz.notaaprobar}"
+        if(quiz.nota >= quiz.notaaprobar)
+          @aprobados += 1
+        end
+      end
       @totales = Resultado.joins(:user,:cuestionario).where( resultados: {user_id: @user.id}).count(:cuestionario_id)
       @suspendidos = @totales - @aprobados
     
@@ -167,78 +177,85 @@ class ApplicationController < Sinatra::Base
       @profesor_general = Hash.new
       
       @cuest_profesor = Cuestionario.where(creador: @user.name)
-      @profesor_general["creados"] = @cuest_profesor.length
+      if @cuest_profesor.length != 0
+        @profesor_general["creados"] = @cuest_profesor.length
 
-      @datos_profesor = Resultado.joins(:user,:cuestionario).where(cuestionarios: {creador: @user.name}).select("nota,notaaprobar,notamaxima,fechares")
-      @profesor_general["totales"] = @datos_profesor.length
-
-      aux = 0
-      notamedia = 0
-      @datos_profesor.each do |cuest|
-        notamedia += (cuest.nota * 100) / cuest.notamaxima
-        if cuest.nota >= cuest.notaaprobar
-          aux += 1
-        end
-      end
-      @profesor_general["aprobados"] = aux
-      @profesor_general["suspendidos"] = @profesor_general["totales"] - @profesor_general["aprobados"]
-      @profesor_general["%aprobados"] = (@profesor_general["aprobados"].to_f * 100 / @profesor_general["totales"].to_f).round(2)
-      @profesor_general["notamedia"] = (notamedia / @datos_profesor.length).round(2)
-
-      @last_10_prof = Resultado.joins(:user,:cuestionario).where(cuestionarios: {creador: @user.name}).select("nota,fechares,notamaxima").limit(10)
-      @area_chart_prof = Hash.new
-      @last_10_prof.each do |nota|
-        aux = (nota.nota * 100) / nota.notamaxima
-        @area_chart_prof[nota.fechares] = aux
-      end
-      @profesor_general["line_chart"] = @area_chart_prof
-
-      @profesor_stats << @profesor_general
-
-      #Individual
-      @cuest_profesor.each do |cuestionario|
-        @profesor_ind = Hash.new
-        @totales_ind = Resultado.joins(:user,:cuestionario).where(cuestionario_id: cuestionario.id, cuestionarios: {creador: @user.name}).select("titulo,nota,notamaxima,notaaprobar")
-
-        if @totales_ind.length != 0
+        @datos_profesor = Resultado.joins(:user,:cuestionario).where(cuestionarios: {creador: @user.name}).select("nota,notaaprobar,notamaxima,fechares")
+        @profesor_general["totales"] = @datos_profesor.length
+        if @profesor_general["totales"] != 0
           aux = 0
           notamedia = 0
-          @totales_ind.each do |cuest|
+          @datos_profesor.each do |cuest|
             notamedia += (cuest.nota * 100) / cuest.notamaxima
             if cuest.nota >= cuest.notaaprobar
               aux += 1
             end
-          end      
-          @profesor_ind["id"] = cuestionario.id
-          @profesor_ind["titulo"] = cuestionario.titulo
-          @profesor_ind["n_resuelto"] = @totales_ind.length
-          @profesor_ind["n_media"] = (notamedia / @profesor_ind["n_resuelto"]).round(2)
-          @profesor_ind["n_aprobados"] = aux
-          @profesor_ind["n_suspensos"] = @profesor_ind["n_resuelto"] - @profesor_ind["n_aprobados"]
-
-          @last_10_prof_ind = Resultado.joins(:user,:cuestionario).where(cuestionario_id: cuestionario.id, cuestionarios: {creador: @user.name}).select("nota,fechares,notamaxima").limit(10)
-          @area_chart_prof_ind = Hash.new
-          @last_10_prof_ind.each do |nota|
-            aux = (nota.nota * 100) / nota.notamaxima
-            @area_chart_prof_ind[nota.fechares] = aux
           end
-          @profesor_ind["line_chart"] = @area_chart_prof_ind
+          @profesor_general["aprobados"] = aux
+          @profesor_general["suspendidos"] = @profesor_general["totales"] - @profesor_general["aprobados"]
+          @profesor_general["%aprobados"] = (@profesor_general["aprobados"].to_f * 100 / @profesor_general["totales"].to_f).round(2)
+          @profesor_general["notamedia"] = (notamedia / @datos_profesor.length).round(2)
+
+          @last_10_prof = Resultado.joins(:user,:cuestionario).where(cuestionarios: {creador: @user.name}).select("nota,fechares,notamaxima").limit(10)
+          @area_chart_prof = Hash.new
+          @last_10_prof.each do |nota|
+            aux = (nota.nota * 100) / nota.notamaxima
+            @area_chart_prof[nota.fechares] = aux
+          end
+          @profesor_general["line_chart"] = @area_chart_prof
+
+          @profesor_stats << @profesor_general
         else
-          @profesor_ind["id"] = cuestionario.id
-          @profesor_ind["titulo"] = cuestionario.titulo
-          @profesor_ind["n_resuelto"] = 0
-          @profesor_ind["n_media"] = 0
-          @profesor_ind["line_chart"] = 0
-          @profesor_ind["n_aprobados"] = 0
-          @profesor_ind["n_suspensos"] = 0
+          @profesor_general["aprobados"] = 0
+          @profesor_general["suspendidos"] = 0
+          @profesor_general["%aprobados"] = 0.0
+          @profesor_general["notamedia"] = 0.0
+
+          @profesor_stats << @profesor_general
         end
 
-        @profesor_stats << @profesor_ind
+        #Individual
+        @cuest_profesor.each do |cuestionario|
+          @profesor_ind = Hash.new
+          @totales_ind = Resultado.joins(:user,:cuestionario).where(cuestionario_id: cuestionario.id, cuestionarios: {creador: @user.name}).select("titulo,nota,notamaxima,notaaprobar")
 
+          if @totales_ind.length != 0
+            aux = 0
+            notamedia = 0
+            @totales_ind.each do |cuest|
+              notamedia += (cuest.nota * 100) / cuest.notamaxima
+              if cuest.nota >= cuest.notaaprobar
+                aux += 1
+              end
+            end      
+            @profesor_ind["id"] = cuestionario.id
+            @profesor_ind["titulo"] = cuestionario.titulo
+            @profesor_ind["n_resuelto"] = @totales_ind.length
+            @profesor_ind["n_media"] = (notamedia / @profesor_ind["n_resuelto"]).round(2)
+            @profesor_ind["n_aprobados"] = aux
+            @profesor_ind["n_suspensos"] = @profesor_ind["n_resuelto"] - @profesor_ind["n_aprobados"]
+
+            @last_10_prof_ind = Resultado.joins(:user,:cuestionario).where(cuestionario_id: cuestionario.id, cuestionarios: {creador: @user.name}).select("nota,fechares,notamaxima").limit(10)
+            @area_chart_prof_ind = Hash.new
+            @last_10_prof_ind.each do |nota|
+              aux = (nota.nota * 100) / nota.notamaxima
+              @area_chart_prof_ind[nota.fechares] = aux
+            end
+            @profesor_ind["line_chart"] = @area_chart_prof_ind
+          else
+            @profesor_ind["id"] = cuestionario.id
+            @profesor_ind["titulo"] = cuestionario.titulo
+            @profesor_ind["n_resuelto"] = 0
+            @profesor_ind["n_media"] = 0
+            @profesor_ind["line_chart"] = 0
+            @profesor_ind["n_aprobados"] = 0
+            @profesor_ind["n_suspensos"] = 0
+          end
+
+          @profesor_stats << @profesor_ind
+
+        end
       end
-
-      
-
     end
 
     erb :stats

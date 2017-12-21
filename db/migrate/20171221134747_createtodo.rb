@@ -1,4 +1,4 @@
-class Createall < ActiveRecord::Migration[5.1]
+class Createtodo < ActiveRecord::Migration[5.1]
   def change
     drop_table :cuestionarios
     create_table :cuestionarios  do |t|

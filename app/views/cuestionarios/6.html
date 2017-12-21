@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>RuQuiz</title>
+    <title>Prueba #005</title>
     <!-- Bootstrap CSS -->
     
       <style type="text/css">
@@ -78,13 +78,7 @@
       }
       
       /* Inputs size */
-      input.size-6 { width: 4.2em; }
-
-input.size-7 { width: 4.9em; }
-div.size-7 { width: 4.9em; display: inline; }
-
-div.size-8 { width: 5.6em; display: inline; }
-
+      
     </style>
     <!-- jQuery ContextMenu CSS -->
     
@@ -1579,7 +1573,7 @@ CodeMirror.defineMIME("application/typescript", { name: "javascript", typescript
       
         <div class="navbar navbar-default custom-header">
           <div class="navbar-header">
-            <h3>RuQuiz</h3>
+            <h3>Prueba #005</h3>
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
@@ -1591,25 +1585,26 @@ CodeMirror.defineMIME("application/typescript", { name: "javascript", typescript
           </div>
         </div>
       
-      <!-- Seed: 74748825430741678448226255133184501520 -->
+      <!-- Seed: 12028563133372162093256396379250159364 -->
 <form id="form">
   <ol class="questions">
-    <li id="question-0" class="question fillin ">
+    <li id="question-0" class="question truefalse ">
       <div class="quiz text">
-[1 point] El sistema gestor de bases de datos de Ruquiz es -, y <input type="text" id="qfi1-1" name="qfi1-1" class="fillin size-6"></input> es el framework encargado de generar los gráficos.<div id="qfi1-1r" class="quiz"></div></br></br>      </div>
-      <br>
-      </br>
+[1 point] True or False: True<br></br>      </div>
+      <ol class="answers">
+        <input type="radio" id="qmc1-1" name="qmc1" class="select">
+True<br class="qmc1-1br">        </input>
+        <div id="qmc1-1r" class="quiz">
+        </div>
+        <input type="radio" id="qmc1-2" name="qmc1" class="select">
+False<br class="qmc1-2br">        </input>
+        <div id="qmc1-2r" class="quiz">
+        </div>
+        <br/>
+      </ol>
     </li>
-    <li id="question-1" class="question dragdrop_fi ">
-      <div class="quiz text">
-[1 point] La documentación se ha realizado mediante <input id="qddfi2-1" name="qddfi2-1" class="dragdropfi size-7" ondrop="drop(event,'qddfi2-1', 
-true)" 
-                          ondragover="allowDrop(event)"></input> y el despliegue en el -.<br/><br/><div> Respuestas: <a class="dragdropfi size-7 btn btn-default btn-sm" id="qddfia1-1" draggable="true" 
-        ondragstart="drag(event)">gitbook</a>&nbsp&nbsp<a class="dragdropfi size-8 btn btn-default btn-sm" id="qddfia2-2" draggable="true" 
-        ondragstart="drag(event)">iaas ull</a>&nbsp&nbsp<div/></br></br>      </div>
-      <br>
-      </br>
-    </li>
+    <br>
+    </br>
   </ol>
   <div id="score" class="score">
   </div>
@@ -1708,11 +1703,11 @@ var XRegExp;XRegExp=XRegExp||function(n){"use strict";function v(n,i,r){var u;fo
     
       <script type="text/javascript">
         
-      data = {"question-0":{"question_text":"El sistema gestor de bases de datos de Ruquiz es -, y ------ es el framework encargado de generar los gráficos.","answers":{"qfi1-1":{"answer_text":"/sqlite/","correct":true,"explanation":null,"type":"Regexp"},"qfi1-2":{"answer_text":"/chartkick/","correct":true,"explanation":null,"type":"Regexp"}},"points":1,"order":true,"question_comment":""},"question-1":{"question_text":"La documentación se ha realizado mediante ------- y el despliegue en el -.","answers":{"qddfi2-1":{"answer_text":"gitbook","correct":true,"explanation":null,"type":"String"},"qddfi2-2":{"answer_text":"iaas ull","correct":true,"explanation":null,"type":"String"}},"points":1,"order":true,"question_comment":""}};
-      timestamp = 1513865245
+      data = {"question-0":{"question_text":"True or False: True","answers":{"qmc1-1":{"answer_text":"True","correct":true,"explanation":null},"qmc1-2":{"answer_text":"False","correct":false,"explanation":""}},"points":1,"question_comment":""}};
+      timestamp = 1513853945
       timestamp = timestamp.toString();
       language = 'es';
-      totalPoints = 2;
+      totalPoints = 1;
       userPoints = 0;
       
       function findCorrectAnswer(idQuestion, questionType) {
